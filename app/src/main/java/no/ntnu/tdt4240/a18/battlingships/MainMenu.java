@@ -1,12 +1,12 @@
 package no.ntnu.tdt4240.a18.battlingships;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainMenu extends ActionBarActivity {
+public class MainMenu extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

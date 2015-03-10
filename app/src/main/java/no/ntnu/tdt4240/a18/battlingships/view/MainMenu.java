@@ -1,12 +1,16 @@
-package no.ntnu.tdt4240.a18.battlingships;
+package no.ntnu.tdt4240.a18.battlingships.view;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import no.ntnu.tdt4240.a18.battlingships.R;
 
 
-public class MainMenu extends ActionBarActivity {
+public class MainMenu extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +40,11 @@ public class MainMenu extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /** Called when the user clicks the "Game View" button */
+    public void startGame(View view) {
+        Intent intent = new Intent(this, GameView.class);
+        startActivity(intent);
+    }
+
 }

@@ -9,7 +9,6 @@ import android.view.View;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
 
-
 public class MainMenu extends Activity {
 
     @Override

@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">BattlingShips</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="game">Now you\'re playing!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="title_activity_ending_view">Game over</string>
+    <string name="end_msg">You either won or lost.\nGame over.</string>
+
+    <string name="main_menu_btn1">Game view</string>
+    <string name="title_activity_game_view">GameView</string>
+    <string name="game_btn0">Ending view</string>
 </resources>

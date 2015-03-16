@@ -10,7 +10,7 @@ public class Player {
     private Ship ship = null;
 
     public Ship createShip() {
-        ship = new BasicShip();
+        ship = new BasicShip(1,1);
         return ship;
     }
 

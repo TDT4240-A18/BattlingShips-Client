@@ -7,13 +7,32 @@ import java.util.ArrayList;
  */
 public class Board {
 
-    private ArrayList<Ship> ships = new ArrayList<>();
-    
-    public void addShip(Ship ship) {
-        ships.add(ship);
+    private Ship[][] board ={{null}};
+    private int width;
+    private int height;
+
+    public Board(int width, int height){
+        this.width = width;
+        this.height = height;
+        board = new Ship[height][width];
+    }
+
+    public int getWidth(){
+        return width;
+    }
+    public int getHeight(){
+        return height;
+    }
+    public void addShip(Ship ship, int x, int y) {
+        board[y][x]=ship;
+    }
+
+    //should be on serverside only
+    public boolean checkOccupied(int x, int y){
+        return (board[y][x] != null);
     }
 
     public void removeShip(Ship ship) {
-        ships.remove(ship);
+        board[ship.getPosY()][ship.getPosX()]=null;
     }
 }

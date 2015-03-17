@@ -12,5 +12,19 @@ public class NetworkInterface {
     }
 
     private NetworkInterface() {
+
     }
+    /*
+    public void move(String username, int x,int y){
+
+    }
+    public void shoot(String username, int x, int y){
+
+    }
+
+    //a heartbeat that runs in a seperate thread
+    check(username){
+
+    }
+    */
 }

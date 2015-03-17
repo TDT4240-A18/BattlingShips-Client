@@ -13,6 +13,6 @@ public class Game {
 
     public Game(Gamerules rules) {
         this.rules = rules;
-        board = new Board();
+        board = new Board(3,3);
     }
 }

@@ -25,6 +25,19 @@ public class BasicShip implements Ship {
     }
 
     @Override
+    public void moveShip(int x, int y){
+        this.x = x;
+        this.y =y;
+    }
+    @Override
+    public int getPosX(){
+        return x;
+    }
+    @Override
+    public int getPosY(){
+        return y;
+    }
+    @Override
     public int getLife() {
         return life;
     }
@@ -36,6 +49,7 @@ public class BasicShip implements Ship {
             //If true terminate ship
         }
     }
+
 
     @Override
     public boolean shipLost() {

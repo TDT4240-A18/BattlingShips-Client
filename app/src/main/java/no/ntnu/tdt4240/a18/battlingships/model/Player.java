@@ -8,9 +8,25 @@ import no.ntnu.tdt4240.a18.battlingships.model.ship.BasicShip;
 public class Player {
 
     private Ship ship = null;
+    private String username;
+    private boolean ready;
 
-    public Ship createShip() {
-        ship = new BasicShip(1,1);
+
+    public Player(String name){
+        username = name;
+        ready = false;
+    }
+    public void imReady(){
+        ready = true;
+    }
+    public boolean getReady(){
+        return ready;
+    }
+    public Ship createShip(int x,int y) {
+        ship = new BasicShip(x,y);
+        return ship;
+    }
+    public Ship getShip(){
         return ship;
     }
 

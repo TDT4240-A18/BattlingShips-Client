@@ -21,5 +21,9 @@ public interface Ship {
 
     public ShipDirections getDirection();
 
+    public void moveShip(int x,int y);
 
+    public int getPosX();
+
+    public int getPosY();
 }

@@ -11,9 +11,15 @@ public class NetworkInterface {
         return INSTANCE;
     }
 
-    private NetworkInterface() {
+    private NetworkInterface() {}
 
-    }
+    /**
+     * This method checks overall status of the network connection.
+     *
+     * It should make available information if there is connection to the server and some game on the server.
+     */
+    public void checkStatus() {}
+
     /*
     public void move(String username, int x,int y){
 

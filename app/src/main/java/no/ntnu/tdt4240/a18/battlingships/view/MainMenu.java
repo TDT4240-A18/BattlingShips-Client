@@ -8,12 +8,19 @@ import android.view.MenuItem;
 import android.view.View;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
+import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
 
 public class MainMenu extends Activity {
+
+    private NetworkInterface net;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        net = NetworkInterface.getInstance();
+        net.checkStatus();
+
         setContentView(R.layout.activity_main_menu);
     }
 

@@ -10,4 +10,8 @@
     <string name="main_menu_btn1">Game view</string>
     <string name="title_activity_game_view">GameView</string>
     <string name="game_btn0">Ending view</string>
+    <string name="title_activity_activity_credit_view">activity_credit_view</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_credit_view">Credit_view</string>
 </resources>

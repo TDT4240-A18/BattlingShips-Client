@@ -1,7 +1,5 @@
 package no.ntnu.tdt4240.a18.battlingships.model.ship;
 
-import java.lang.reflect.Array;
-
 import no.ntnu.tdt4240.a18.battlingships.model.Ship;
 import no.ntnu.tdt4240.a18.battlingships.model.ShipDirections;
 
@@ -26,9 +24,36 @@ public class BasicShip implements Ship {
 
     @Override
     public void moveShip(int x, int y){
+        ShipDirections WEdir = null; // West-East direction
+        int WEforce = 0;
+        ShipDirections NSdir = null; // North-South direction
+        int NSforce = 0;
+        if (x > this.x) { // moving right
+            WEdir = ShipDirections.RIGHT;
+            WEforce = x - this.x;
+        } else if (x < this.x) { // moving left
+            WEdir = ShipDirections.LEFT;
+            WEforce = this.x - x;
+        }
+        if (y > this.y) { // moving down
+            NSdir = ShipDirections.DOWN;
+            NSforce = y - this.y;
+        } else if (y < this.y) { // moving up
+            NSdir = ShipDirections.UP;
+            NSforce = this.y - y;
+        }
+        if (WEdir != null && NSdir != null) {
+            direction = (NSforce > WEforce) ? NSdir : WEdir;
+        } else if (WEdir != null) {
+            direction = WEdir;
+        } else if (NSdir != null) {
+            direction = NSdir;
+        }
+
         this.x = x;
-        this.y =y;
+        this.y = y;
     }
+
     @Override
     public int getPosX(){
         return x;
@@ -50,11 +75,11 @@ public class BasicShip implements Ship {
         }
     }
 
-
     @Override
     public boolean shipLost() {
         return (life <= 0);
     }
+
     @Override
     public int getRange() {
         return moverange;

@@ -1,17 +1,22 @@
 <resources>
     <string name="app_name">BattlingShips</string>
 
+    <string name="main_menu_btn1">Create a game</string>
+    <string name="main_menu_btn2">Join a game</string>
+    <string name="main_menu_btnš">Credits</string>
+    <string name="main_menu_btn4">Exit</string>
+
     <string name="game">Now you\'re playing!</string>
     <string name="action_settings">Settings</string>
 
     <string name="title_activity_ending_view">Game over</string>
     <string name="end_msg">You either won or lost.\nGame over.</string>
 
-    <string name="main_menu_btn1">Game view</string>
     <string name="title_activity_game_view">GameView</string>
     <string name="game_btn0">Ending view</string>
     <string name="title_activity_activity_credit_view">activity_credit_view</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_credit_view">Credit_view</string>
+
 </resources>

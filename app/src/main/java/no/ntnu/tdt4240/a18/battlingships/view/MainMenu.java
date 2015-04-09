@@ -51,8 +51,8 @@ public class MainMenu extends Activity {
     }
 
     /** Called when the user clicks the "Game View" button */
-    public void startGame(View view) {
-        Intent intent = new Intent(this, GameView.class);
+    public void createNewGame(View view) {
+        Intent intent = new Intent(this, CreateNewGame.class);
         startActivity(intent);
     }
 

@@ -63,7 +63,9 @@
             android:layout_below="@+id/main_menu_btn2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:height="75sp" />
+            android:height="75sp"
+            android:nestedScrollingEnabled="false"
+            android:onClick="showCredits" />
 
         <Button
             android:layout_width="wrap_content"

@@ -11,7 +11,7 @@ public class NetworkInterface {
         return INSTANCE;
     }
 
-    private NetworkInterface() {}
+    public NetworkInterface() {}
 
     /**
      * This method checks overall status of the network connection.

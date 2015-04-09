@@ -12,6 +12,10 @@
     <string name="title_activity_ending_view">Game over</string>
     <string name="end_msg">You either won or lost.\nGame over.</string>
 
+    <string name="title_activity_action_view">ActionView</string>
+    <string name="title_activity_activity_action_view">activity_action_view</string>
+
+
     <string name="title_activity_game_view">GameView</string>
     <string name="game_btn0">Ending view</string>
     <string name="title_activity_activity_credit_view">activity_credit_view</string>

@@ -14,7 +14,7 @@ tools:context="no.ntnu.tdt4240.a18.battlingships.view.GameView">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="right|top"
         android:gravity="center">
 
         <Button

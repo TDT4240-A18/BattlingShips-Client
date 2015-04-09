@@ -22,20 +22,38 @@ public class BasicGame implements Gamerules {
 
     @Override
     public boolean checkMove(Ship ship, int posX, int posY) {
+        //checks if position is out of bounds
         if (posX >= board.getWidth()|| posY >= board.getHeight() || posX < 0 || posY < 0){
             return false;
         }
-        //add a check if the move is valid based on ships current position
-        return true;
+        //this sentence only works when all ships only can move and shoot one tile away from their position
+        //im sure it can be written in a prettier and more compact way
+        //it checks if the spot that is chosen to move to is within range of the ships moving range (if the range is 1)
+        if ((ship.getPosX()-posX==1 || ship.getPosX()-posX==-1 || ship.getPosX()==posX) && (ship.getPosY()-posY==1 || ship.getPosY()-posY==-1 || ship.getPosY()==posY)) {
+            if (ship.getPosX()-posX == 0 && ship.getPosY()-posY == 0) {
+                return false;
+            }
+            return true;
+        }
+        else{ return false;}
     }
 
     @Override
     public boolean checkShot(Ship ship, int posX, int posY) {
+            //checks if position is out of bounds
         if (posX >= board.getWidth()|| posY >= board.getHeight() || posX < 0 || posY < 0){
             return false;
         }
-        //add a check if the move is valid based on ships current position
-        return true;
+        //this sentence only works when all ships only can move and shoot one tile away from their position
+        //im sure it can be written in a prettier and more compact way
+        //it checks if the spot that is aimed at is within range of the ships shooting range (if the range is 1)
+        if ((ship.getPosX()-posX==1 || ship.getPosX()-posX==-1 || ship.getPosX()==posX) && (ship.getPosY()-posY==1 || ship.getPosY()-posY==-1 || ship.getPosY()==posY)){
+            if (ship.getPosX()-posX == 0 && ship.getPosY()-posY==0){
+                return false;
+            }
+            return true;
+        }
+        else{ return false;}
     }
 
     @Override

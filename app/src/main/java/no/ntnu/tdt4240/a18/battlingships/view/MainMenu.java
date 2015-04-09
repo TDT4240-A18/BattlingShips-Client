@@ -67,4 +67,10 @@ public class MainMenu extends Activity {
         Intent intent = new Intent(this, JoinGameView.class);
         startActivity(intent);
     }
+    
+    /** Called when the user clicks the "Game View" button */
+    public void exitApp(View view) {
+        finish();
+        System.exit(0);
+    }
 }

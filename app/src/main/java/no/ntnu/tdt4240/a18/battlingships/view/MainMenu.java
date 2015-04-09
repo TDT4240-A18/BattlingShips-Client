@@ -58,4 +58,10 @@ public class MainMenu extends Activity {
         Intent intent = new Intent(this, CreditView.class);
         startActivity(intent);
     }
+
+    /** Called when the user clicks the "JoinView" button */
+    public void joinGame(View view) {
+        Intent intent = new Intent(this, JoinGameView.class);
+        startActivity(intent);
+    }
 }

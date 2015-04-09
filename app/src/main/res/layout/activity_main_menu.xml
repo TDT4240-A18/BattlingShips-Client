@@ -52,7 +52,8 @@
             android:layout_alignBottom="@+id/main_menu_btn1"
             android:layout_toRightOf="@+id/main_menu_btn1"
             android:layout_toEndOf="@+id/main_menu_btn1"
-            android:height="75sp" />
+            android:height="75sp"
+            android:onClick="joinGame" />
 
         <Button
             android:layout_width="wrap_content"

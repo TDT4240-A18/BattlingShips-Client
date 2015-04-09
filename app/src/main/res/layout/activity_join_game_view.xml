@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#0099cc"
+    tools:context="no.ntnu.tdt4240.a18.battlingships.view.MainMenu">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="149dp"
+        android:text="Join Game"
+        android:id="@+id/joinGameText"
+        android:shadowColor="#ff626262"
+        android:password="false"
+        android:textColor="#ffe56d23"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+</FrameLayout>

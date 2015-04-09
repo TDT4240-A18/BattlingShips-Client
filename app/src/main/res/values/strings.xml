@@ -18,5 +18,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_credit_view">Credit_view</string>
+    <string name="title_activity_join_game_view">JoinGameView</string>
 
 </resources>

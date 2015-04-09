@@ -36,15 +36,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".view.JoinGameView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_join_game_view"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-=======
             android:name=".view.ActionView"
             android:label="@string/title_activity_action_view" >
->>>>>>> origin/master
         </activity>
     </application>
 

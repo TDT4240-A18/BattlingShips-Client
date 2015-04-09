@@ -35,6 +35,10 @@
             android:label="@string/title_activity_credit_view"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
+        <activity
+            android:name=".view.ActionView"
+            android:label="@string/title_activity_action_view" >
+        </activity>
     </application>
 
 </manifest>

@@ -12,13 +12,13 @@ import no.ntnu.tdt4240.a18.battlingships.model.Ship;
  */
 public class BasicGame implements Gamerules {
     private Board board;
-    //list of remaining players.
-    private ArrayList<Player> players;
+    //list of remaining players. should be serverside?
+    //private ArrayList<Player> players = new ArrayList<Player>();
 
-    public BasicGame(Board board, ArrayList<Player> players){
+    public BasicGame(Board board){
         this.board = board;
-        this.players = players;
     }
+
 
     @Override
     public boolean checkMove(Ship ship, int posX, int posY) {
@@ -55,10 +55,10 @@ public class BasicGame implements Gamerules {
         }
         else{ return false;}
     }
-
+    //only serverside?
     @Override
     public boolean checkWin() {
-        return (players.size() == 1);
+        return false; //(players.size() == 1);
     }
 
     @Override

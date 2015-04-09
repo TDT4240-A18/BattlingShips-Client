@@ -8,15 +8,14 @@ import java.util.ArrayList;
 public class Board {
 
     private Ship[][] board ={{null}};
-    private int width;
-    private int height;
+    private int width=3;
+    private int height=3;
 
-    public Board(int width, int height){
-        this.width = width;
-        this.height = height;
-        board = new Ship[height][width];
+    public Board(){
     }
 
+    public void setWidth(int width){this.width = width;}
+    public void setHeight(int height){this.height = height;}
     public int getWidth(){
         return width;
     }

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
+import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
 
 public class MainMenu extends Activity {
@@ -22,6 +23,8 @@ public class MainMenu extends Activity {
         net.checkStatus();
 
         setContentView(R.layout.activity_main_menu);
+
+        final ShipController aController = (ShipController) getApplicationContext();
     }
 
 

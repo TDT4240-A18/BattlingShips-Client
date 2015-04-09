@@ -11,8 +11,8 @@ public class Game {
     private Board board = null;
     private ArrayList<Player> players = new ArrayList<>();
 
-    public Game(Gamerules rules) {
+    public Game(Gamerules rules, Board board) {
         this.rules = rules;
-        board = new Board(3,3);
+        this.board = board;
     }
 }

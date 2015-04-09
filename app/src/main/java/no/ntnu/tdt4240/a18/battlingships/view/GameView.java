@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
+import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 public class GameView extends Activity {
 
@@ -18,6 +19,7 @@ public class GameView extends Activity {
         map = new MapView();
 
         setContentView(R.layout.activity_game_view);
+        final ShipController aController = (ShipController) getApplicationContext();
     }
 
     /** Called when the user clicks the "Ending View" button */

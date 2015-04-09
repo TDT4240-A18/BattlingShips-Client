@@ -55,7 +55,7 @@ public class MainMenu extends Activity {
 
     /** Called when the user clicks the "CreditView" button */
     public void showCredits(View view) {
-        Intent intent = new Intent(this, GameView.class);
+        Intent intent = new Intent(this, CreditView.class);
         startActivity(intent);
     }
 }

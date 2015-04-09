@@ -11,19 +11,82 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|bottom"
+        android:layout_gravity="center"
         android:gravity="center_vertical|center_horizontal"
         android:padding="20pt">
 
-        <Button
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Credits"
+            android:id="@+id/creditsText"
+            android:layout_marginTop="115dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="32dp" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_menu_btn1"
-            android:id="@+id/main_menu_btn1"
-            android:gravity="center_vertical|center_horizontal"
-            android:onClick="startGame"
-            android:enabled="true"
-            android:padding="20dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Sondre Padøy"
+            android:id="@+id/sondeText"
+            android:layout_alignTop="@+id/creditsText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Junjun Guo"
+            android:id="@+id/junText"
+            android:layout_below="@+id/sondeText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Chun Fan"
+            android:id="@+id/chunText"
+            android:layout_below="@+id/junText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Luka Cetusic"
+            android:id="@+id/lukaText"
+            android:layout_below="@+id/chunText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Ondřej Hujňák"
+            android:id="@+id/ondrejText"
+            android:layout_below="@+id/lukaText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Eirik Zimmer Wold"
+            android:id="@+id/eirikText"
+            android:layout_below="@+id/ondrejText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp" />
 
     </RelativeLayout>
 

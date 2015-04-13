@@ -3,7 +3,7 @@
 
     <string name="main_menu_btn1">Create a game</string>
     <string name="main_menu_btn2">Join a game</string>
-    <string name="main_menu_btnš">Credits</string>
+    <string name="main_menu_btn3">Credits</string>
     <string name="main_menu_btn4">Exit</string>
 
     <string name="game">Now you\'re playing!</string>
@@ -23,5 +23,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_credit_view">Credit_view</string>
     <string name="title_activity_join_game_view">JoinGameView</string>
+
+    <string name="title_activity_create_new_game">Create Game</string>
+    <string name="createGameForm_username">Username</string>
+    <string name="createGameForm_username_hint">Nickname</string>
+    <string name="createGameForm_playerCnt">Number of players</string>
+    <string name="createGameForm_playerCnt_hint">1</string>
+    <string name="createGameForm_create">Create</string>
 
 </resources>

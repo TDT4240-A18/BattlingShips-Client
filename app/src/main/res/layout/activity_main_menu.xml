@@ -34,7 +34,7 @@
             android:text="@string/main_menu_btn1"
             android:id="@+id/main_menu_btn1"
             android:gravity="center_vertical|center_horizontal"
-            android:onClick="startGame"
+            android:onClick="createNewGame"
             android:enabled="true"
             android:padding="20dp"
             android:width="100sp"
@@ -58,7 +58,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_menu_btnš"
+            android:text="@string/main_menu_btn3"
             android:id="@+id/main_manu_btn3"
             android:width="100sp"
             android:layout_below="@+id/main_menu_btn2"
@@ -78,7 +78,7 @@
             android:layout_toRightOf="@+id/main_manu_btn3"
             android:layout_toEndOf="@+id/main_manu_btn3"
             android:height="75sp"
-            />
+            android:onClick="exitApp" />
 
     </RelativeLayout>
 

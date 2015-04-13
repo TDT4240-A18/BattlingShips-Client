@@ -30,6 +30,11 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
+            android:name=".view.CreateNewGame"
+            android:label="@string/title_activity_create_new_game"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
             android:name=".view.CreditView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_credit_view"

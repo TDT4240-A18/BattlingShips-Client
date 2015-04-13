@@ -77,8 +77,26 @@
             android:layout_below="@+id/main_menu_btn2"
             android:layout_toRightOf="@+id/main_manu_btn3"
             android:layout_toEndOf="@+id/main_manu_btn3"
-            android:height="75sp" />
+            android:height="75sp"
+            />
 
     </RelativeLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Guest"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set name"
+        android:id="@+id/button2"
+        android:layout_gravity="right|center_vertical"
+        android:onClick= "setName" />
 
 </FrameLayout>

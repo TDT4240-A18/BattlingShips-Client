@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
+import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 public class ActionView extends ActionBarActivity {
 
@@ -13,6 +14,7 @@ public class ActionView extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_view);
+        final ShipController aController = (ShipController) getApplicationContext();
     }
 
 

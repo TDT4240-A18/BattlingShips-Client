@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
@@ -13,8 +14,9 @@ import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
 
 public class MainMenu extends Activity {
 
+    private ShipController aController;
+    private EditText name;
     private NetworkInterface net;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,8 @@ public class MainMenu extends Activity {
 
         setContentView(R.layout.activity_main_menu);
 
-        final ShipController aController = (ShipController) getApplicationContext();
+        aController = (ShipController) getApplicationContext();
+        name = (EditText) findViewById(R.id.editText);
     }
 
 
@@ -48,6 +51,11 @@ public class MainMenu extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setName(View view){
+        aController.getPlayer().setUsername(name.getText().toString());
+        System.out.print("new name: " + name.toString());
     }
 
     /** Called when the user clicks the "Game View" button */

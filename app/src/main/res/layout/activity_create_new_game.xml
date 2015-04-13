@@ -1,0 +1,92 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#0099cc"
+    tools:context="no.ntnu.tdt4240.a18.battlingships.view.CreateNewGame">
+
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
+        android:layout_height="149dp" android:keepScreenOn="true" android:textColor="#ffe56d23"
+        android:textStyle="bold" android:textSize="50sp" android:gravity="center"
+        android:text="@string/title_activity_create_new_game"
+        android:shadowColor="#ff626262" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="370dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:padding="20pt"
+        android:id="@+id/create_game_form"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/createGameForm_username"
+            android:id="@+id/textView"
+            android:layout_alignParentBottom="false"
+            android:visibility="visible"
+            android:layout_alignParentStart="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:width="200dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:background="#fff"
+            android:editable="true"
+            android:elegantTextHeight="true"
+            android:enabled="true"
+            android:hint="@string/createGameForm_username_hint"
+            android:padding="10dp"
+            android:width="200dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/createGameForm_playerCnt"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/editText"
+            android:layout_alignLeft="@+id/editText"
+            android:layout_alignStart="@+id/editText"
+            android:layout_marginTop="20dp"
+            android:width="200dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:background="#fff"
+            android:enabled="true"
+            android:padding="10dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/createGameForm_playerCnt_hint"
+            android:layout_alignLeft="@+id/textView2"
+            android:width="200dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/createGameForm_create"
+            android:id="@+id/button"
+            android:width="150dp"
+            android:layout_centerHorizontal="true"
+            android:height="75sp"
+            android:layout_alignParentBottom="true"
+            android:onClick="createGame" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

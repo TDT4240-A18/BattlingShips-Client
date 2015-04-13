@@ -135,7 +135,9 @@
             android:layout_alignParentRight="false"
             android:layout_alignParentEnd="false"
             android:gravity="center"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:onClick = "mapView"
+            />
 
         <Button
             android:layout_width="85dp"

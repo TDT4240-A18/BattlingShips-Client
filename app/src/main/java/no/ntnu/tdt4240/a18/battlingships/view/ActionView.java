@@ -1,9 +1,11 @@
 package no.ntnu.tdt4240.a18.battlingships.view;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
 
@@ -14,6 +16,12 @@ public class ActionView extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_view);
     }
+    public void mapView(View view){
+        Intent intent = new Intent(this, MapView.class);
+        startActivity(intent);
+
+    }
+
 
 
     @Override

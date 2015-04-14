@@ -18,6 +18,14 @@ public class NetworkInterface {
      *
      * It should make available information if there is connection to the server and some game on the server.
      */
+    public void imReady(String name){
+        //need to send to the server that this person is ready
+    }
+    public String creator(){
+        //ask server who created the game
+        return null;
+    }
+
     public void checkStatus() {}
 
     /*

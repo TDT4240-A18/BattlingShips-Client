@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -19,11 +20,13 @@ public class JoinGameView extends Activity {
     ShipController aController;
     ArrayAdapter<String> adapter;
     ArrayList<String> valuelist;
+    Button begin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_game_view);
         aController = (ShipController) getApplicationContext();
+        begin = (Button) findViewById(R.id.button5);
         name =(EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
 
@@ -33,6 +36,9 @@ public class JoinGameView extends Activity {
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,android.R.id.text1,valuelist);
         listView.setAdapter(adapter);
+        if (!aController.getPlayer().toString().equals(valuelist.get(0))){
+            begin.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void joinGame(View view){
@@ -43,6 +49,16 @@ public class JoinGameView extends Activity {
             adapter.notifyDataSetChanged();
             //adapter.add(testa);
             //listView.setAdapter(adapter);
+        }
+    }
+    public void getReady(View view){
+        aController.getNet().imReady(aController.getPlayer().toString());
+    }
+    public void begin(View view) {
+        if (aController.getNet().creator() == aController.getPlayer().toString()) {
+            //begin game
+        } else {
+        //give message?? you are not the creator
         }
     }
 }

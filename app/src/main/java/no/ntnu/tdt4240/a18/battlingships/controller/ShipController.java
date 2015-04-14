@@ -18,18 +18,21 @@ public class ShipController extends Application {
     private Board board = new Board();
     private Gamerules rules = new BasicGame(board);
     private Game game = new Game(rules, board);
-    private NetworkInterface net = new NetworkInterface();
+    private NetworkInterface net = null;//new NetworkInterface();
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         return player;
     }
-    public Game getGame(){
+
+    public Game getGame() {
         return game;
     }
-    public Board getBoard(){
+
+    public Board getBoard() {
         return board;
     }
-    public NetworkInterface getNet(){
+
+    public NetworkInterface getNet() {
         return net;
     }
 }

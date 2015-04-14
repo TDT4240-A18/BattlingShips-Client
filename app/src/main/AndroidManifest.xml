@@ -1,59 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="no.ntnu.tdt4240.a18.battlingships" >
+          package="no.ntnu.tdt4240.a18.battlingships">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".controller.ShipController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name">
         <activity
             android:name=".view.MainMenu"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".view.EndingView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_ending_view"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name=".view.MapView"
             android:label="@string/title_activity_game_view"
             android:noHistory="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name=".view.CreateNewGame"
             android:label="@string/title_activity_create_new_game"
             android:noHistory="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name=".view.CreditView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_credit_view"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name=".view.JoinGameView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_join_game_view"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name=".view.ActionView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_action_view"
             android:noHistory="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
     </application>
 

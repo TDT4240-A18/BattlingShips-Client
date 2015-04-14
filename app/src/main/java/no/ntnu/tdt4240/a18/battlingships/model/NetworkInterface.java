@@ -1,17 +1,35 @@
 package no.ntnu.tdt4240.a18.battlingships.model;
 
+import android.content.Context;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Ondra on 10/03/15.
  */
 public class NetworkInterface {
 
-    private static final NetworkInterface INSTANCE = new NetworkInterface();
+    private static NetworkInterface instance = null;
 
-    public static NetworkInterface getInstance() {
-        return INSTANCE;
+    private Context context;
+
+    /**
+     * application context
+     *
+     * @param context
+     */
+    private NetworkInterface(Context context) {
+        this.context = context;
     }
 
-    public NetworkInterface() {}
+    public static NetworkInterface getInstance(Context context) {
+        if (instance == null) {
+            instance = new NetworkInterface(context);
+        }
+        return instance;
+    }
 
     /**
      * This method checks overall status of the network connection.
@@ -26,19 +44,112 @@ public class NetworkInterface {
         return null;
     }
 
-    public void checkStatus() {}
 
-    /*
-    public void move(String username, int x,int y){
-
+    /**
+     * send server a request to build a game
+     *
+     * @return true if the game is built.
+     */
+    public void create(String username) {
+        HTTPRequest.send(context, "game", "create", "?username=" + username);
     }
-    public void shoot(String username, int x, int y){
 
+    /**
+     * response from the server
+     *
+     * @param jsonObject
+     */
+    public void response(JSONObject jsonObject) {
+        try {
+            Log.i("", "->operation : " + jsonObject.getString("tag"));
+            Log.i("", "->result: " + jsonObject.getString("desc"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.i("", "all response infor: " + jsonObject.toString());
     }
+
+
+    /**
+     * tell server the user is ready
+     *
+     * @return true if the game is built.
+     */
+    public void ready(String username) {
+        HTTPRequest.send(context, "game", "ready", "?username=" + username);
+    }
+
+    /**
+     * join game
+     *
+     * @param username
+     */
+    public void join(String username) {
+        HTTPRequest.send(context, "game", "join", "?username=" + username);
+    }
+
+    /**
+     * check who has next action
+     *
+     * @param username
+     */
+    public void check(String username) {
+        HTTPRequest.send(context, "game", "check", "?username=" + username);
+    }
+
+    /**
+     * move to
+     *
+     * @param username
+     * @param x
+     * @param y
+     */
+    public void move(String username, int x, int y) {
+        HTTPRequest.send(context, "action", "move", "?username=" + username + "&x=" + x + "&y=" + y);
+    }
+
+    /**
+     * do a shoot
+     *
+     * @param username
+     * @param x
+     * @param y
+     */
+    public void shoot(String username, int x, int y) {
+        HTTPRequest.send(context, "action", "shoot", "?username=" + username + "&x=" + x + "&y=" + y);
+    }
+
+    /**
+     * do nothing: pass the action to next player
+     *
+     * @param username
+     * @param x
+     * @param y
+     */
+    public void doNothing(String username, int x, int y) {
+        HTTPRequest.send(context, "action", "noNothing", "?username=" + username + "&x=" + x + "&y=" + y);
+    }
+
+    /**
+     * finish the game
+     *
+     * @param username
+     */
+    public void finish(String username) {
+        HTTPRequest.send(context, "action", "shoot", "?username=" + username);
+    }
+
+    //
+    //    /**
+    //     * This method checks overall status of the network connection.
+    //     * <p/>
+    //     * It should make available information if there is connection to the server and some game on the server.
+    //     */
+    //    public void checkStatus() {}
+
 
     //a heartbeat that runs in a seperate thread
-    check(username){
+    //    check(username){
 
-    }
-    */
+    //    }
 }

@@ -19,12 +19,19 @@ public class MainMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        net = NetworkInterface.getInstance();
-        net.checkStatus();
+        net = NetworkInterface.getInstance(getApplicationContext());
+//        net.checkStatus();
 
         setContentView(R.layout.activity_main_menu);
 
         aController = (ShipController) getApplicationContext();
+        atextingmethod();
+    }
+
+    private void atextingmethod() {
+
+        String name = "aa";
+        net.create(name);
     }
 
 

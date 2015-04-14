@@ -1,5 +1,6 @@
 package no.ntnu.tdt4240.a18.battlingships.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 
-public class ActionView extends ActionBarActivity {
+public class ActionView extends Activity {
     private boolean shoot=false;
     private boolean move=false;
     private Button ulButton = (Button) findViewById(R.id.ulButton);
@@ -24,13 +25,13 @@ public class ActionView extends ActionBarActivity {
     private Button dlButton= (Button) findViewById(R.id.dlbutton);
     private Button downButton= (Button) findViewById(R.id.downButton);
     private Button drButton= (Button) findViewById(R.id.drButton);
-
+    private ShipController aController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_view);
-        final ShipController aController = (ShipController) getApplicationContext();
+        aController = (ShipController) getApplicationContext();
         move=false;
         shoot=false;
     }

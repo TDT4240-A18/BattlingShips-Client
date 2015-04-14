@@ -34,7 +34,7 @@ public class CreateNewGame extends Activity {
             System.out.println();
         }
 
-        Intent intent = new Intent(this, GameView.class);
+        Intent intent = new Intent(this, MapView.class);
         startActivity(intent);
     }
 

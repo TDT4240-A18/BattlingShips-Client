@@ -111,7 +111,8 @@
             android:layout_alignParentStart="true"
             android:gravity="center"
             android:layout_gravity="bottom"
-            android:layout_weight="1.10" />
+            android:layout_weight="1.10"
+            android:onClick="move" />
 
         <Button
             android:layout_width="85dp"

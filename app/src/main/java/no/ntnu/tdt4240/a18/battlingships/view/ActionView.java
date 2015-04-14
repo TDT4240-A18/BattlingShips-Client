@@ -11,6 +11,8 @@ import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 public class ActionView extends ActionBarActivity {
+    private boolean shoot=false;
+    private boolean move=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,13 @@ public class ActionView extends ActionBarActivity {
     public void mapView(View view){
         Intent intent = new Intent(this, MapView.class);
         startActivity(intent);
+
+    }
+    public void shoot(View view){
+        shoot=true;
+        move=false;
+
+
 
     }
 

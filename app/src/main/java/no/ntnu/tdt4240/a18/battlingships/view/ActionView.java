@@ -3,6 +3,7 @@ package no.ntnu.tdt4240.a18.battlingships.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class ActionView extends Activity {
     private Button dlButton;
     private Button downButton;
     private Button drButton;
+    private Button shootButton;
+    private Button moveButton;
     private ShipController aController;
 
     @Override
@@ -33,7 +36,8 @@ public class ActionView extends Activity {
         aController = (ShipController) getApplicationContext();
         move=false;
         shoot=false;
-
+        shootButton =(Button) findViewById(R.id.shootButton);
+        moveButton = (Button) findViewById(R.id.moveButton);
         ulButton = (Button) findViewById(R.id.ulButton);
         upButton = (Button) findViewById(R.id.upButton);
         urButton= (Button) findViewById(R.id.urButton);
@@ -43,6 +47,7 @@ public class ActionView extends Activity {
         dlButton= (Button) findViewById(R.id.dlbutton);
         downButton= (Button) findViewById(R.id.downButton);
         drButton= (Button) findViewById(R.id.drButton);
+        cancelButton.setBackgroundColor(Color.GRAY);
 
     }
 
@@ -54,6 +59,8 @@ public class ActionView extends Activity {
     public void shoot(View view){
         shoot=true;
         move=false;
+        shootButton.setTypeface(null, Typeface.BOLD);
+        moveButton.setTypeface(null, Typeface.NORMAL);
         ulButton.setText("UpperLeft");
         ulButton.setBackgroundColor(Color.RED);
         upButton.setText("Up");
@@ -75,8 +82,8 @@ public class ActionView extends Activity {
     public void move(View view){
         shoot=false;
         move=true;
-        shoot=true;
-        move=false;
+        shootButton.setTypeface(null, Typeface.NORMAL);
+        moveButton.setTypeface(null, Typeface.BOLD);
         ulButton.setText("UpperLeft");
         ulButton.setBackgroundColor(Color.GREEN);
         upButton.setText("Up");
@@ -99,6 +106,8 @@ public class ActionView extends Activity {
         if(shoot||move){
             shoot=false;
             move=false;
+            shootButton.setTypeface(null, Typeface.NORMAL);
+            moveButton.setTypeface(null, Typeface.NORMAL);
             ulButton.setText("");
             ulButton.setBackgroundColor(Color.BLUE);
             upButton.setText("");

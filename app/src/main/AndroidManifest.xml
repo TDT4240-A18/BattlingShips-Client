@@ -27,11 +27,13 @@
         <activity
             android:name=".view.GameView"
             android:label="@string/title_activity_game_view"
+            android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".view.CreateNewGame"
             android:label="@string/title_activity_create_new_game"
+            android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity

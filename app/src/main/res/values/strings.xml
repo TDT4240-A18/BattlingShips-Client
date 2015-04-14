@@ -31,4 +31,6 @@
     <string name="createGameForm_playerCnt_hint">1</string>
     <string name="createGameForm_create">Create</string>
 
+    <string name="mapView_actionBtn">Perform Action</string>
+
 </resources>

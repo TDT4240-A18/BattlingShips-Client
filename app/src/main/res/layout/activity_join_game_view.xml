@@ -4,22 +4,57 @@
     tools:context="no.ntnu.tdt4240.a18.battlingships.view.MainMenu">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="149dp"
-        android:text="Join Game"
-        android:id="@+id/joinGameText"
-        android:shadowColor="#ff626262"
-        android:password="false"
-        android:textColor="#ffe56d23"
-        android:gravity="center"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <ListView
-        android:layout_width="254dp"
-        android:layout_height="376dp"
-        android:id="@+id/listView"
-        android:layout_gravity="center"
-        android:choiceMode="none" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="149dp"
+            android:text="Join Game"
+            android:id="@+id/joinGameText"
+            android:shadowColor="#ff626262"
+            android:password="false"
+            android:textColor="#ffe56d23"
+            android:gravity="center"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join game"
+            android:id="@+id/button2"
+            android:layout_below="@+id/joinGameText"
+            android:layout_alignRight="@+id/listView"
+            android:layout_alignEnd="@+id/listView"
+            android:onClick="joinGame" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Username"
+            android:id="@+id/editText1"
+            android:layout_gravity="center_horizontal|left"
+            android:layout_below="@+id/joinGameText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:layout_width="254dp"
+            android:layout_height="376dp"
+            android:id="@+id/listView"
+            android:choiceMode="multipleChoice"
+            android:layout_below="@+id/button2"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
 </FrameLayout>

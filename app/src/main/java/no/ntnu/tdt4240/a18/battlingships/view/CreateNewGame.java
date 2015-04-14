@@ -6,21 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import no.ntnu.tdt4240.a18.battlingships.BuildConfig;
 import no.ntnu.tdt4240.a18.battlingships.R;
-import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 public class CreateNewGame extends Activity {
-    private ShipController aController;
-    private EditText name;
+
+    private String username = null;
+    private Integer playerCnt = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_game);
-        aController = (ShipController) getApplicationContext();
-        name = (EditText) findViewById(R.id.editText);
     }
 
     public void createGame(View view) {
+
+        username = ((EditText) findViewById(R.id.username)).getText().toString();
+        if (BuildConfig.DEBUG) {
+            System.out.println("Clicked Create a game.");
+            System.out.println("Username: \"" + username + '"');
+        }
+
+        playerCnt = Integer.parseInt(((EditText) findViewById(R.id.playerCnt)).getText().toString());
+        if (BuildConfig.DEBUG) {
+            System.out.println("Number of players: " + playerCnt);
+            System.out.println();
+        }
+
         Intent intent = new Intent(this, GameView.class);
         startActivity(intent);
     }

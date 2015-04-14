@@ -23,7 +23,7 @@ public class JoinGameView extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_game_view);
-        ShipController aController = (ShipController) getApplicationContext();
+        aController = (ShipController) getApplicationContext();
         name =(EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
 
@@ -38,7 +38,7 @@ public class JoinGameView extends Activity {
     public void joinGame(View view){
         String testa = name.getText().toString();
         if(null!=testa&&testa.length()>0){
-            //aController.getPlayer().setUsername(testa);
+            aController.getPlayer().setUsername(testa);
             valuelist.add(testa);
             adapter.notifyDataSetChanged();
             //adapter.add(testa);

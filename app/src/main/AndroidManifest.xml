@@ -47,8 +47,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_join_game_view"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
             android:name=".view.ActionView"
-            android:label="@string/title_activity_action_view" >
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_action_view"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
     </application>
 

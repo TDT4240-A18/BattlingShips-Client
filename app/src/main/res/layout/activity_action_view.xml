@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="no.ntnu.tdt4240.a18.battlingships.view.ActionView"
-    android:background="#0099cc"
+    android:background="#a6000000"
     android:id="@+id/action_view">
 
     <Button

@@ -6,16 +6,41 @@ tools:context="no.ntnu.tdt4240.a18.battlingships.view.MapView">
 <!-- The primary full-screen view. This can be replaced with whatever view
      is needed to present your content, e.g. VideoView, SurfaceView,
      TextureView, etc. -->
-<TextView android:id="@+id/fullscreen_content" android:layout_width="match_parent"
-    android:layout_height="200dp" android:keepScreenOn="true" android:textColor="#33b5e5"
-    android:textStyle="bold" android:textSize="50sp" android:gravity="center"
-    android:text="@string/game" />
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="right|top"
-        android:gravity="center">
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal|top"
+        android:gravity="bottom"
+        android:paddingTop="10dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:background="#a6000000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You just joined the party."
+            android:id="@+id/textView4"
+            android:textColor="#ff13bd00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="66dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:gravity="center_horizontal|bottom">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mapView_actionBtn"
+            android:id="@+id/actionButton"
+            android:onClick="goToAction"
+            android:layout_gravity="center_horizontal|bottom"
+            android:padding="20dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -23,17 +48,8 @@ tools:context="no.ntnu.tdt4240.a18.battlingships.view.MapView">
             android:text="@string/game_btn0"
             android:id="@+id/game_btn0"
             android:padding="20dp"
-            android:onClick="endGame" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ActionView"
-            android:id="@+id/actionButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="goToAction" />
-    </RelativeLayout>
+            android:onClick="endGame"
+            android:layout_gravity="right|bottom" />
+    </LinearLayout>
 
 </FrameLayout>

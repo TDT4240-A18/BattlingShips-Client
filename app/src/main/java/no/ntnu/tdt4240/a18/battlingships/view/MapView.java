@@ -1,16 +1,35 @@
 package no.ntnu.tdt4240.a18.battlingships.view;
 
-import java.util.ArrayList;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
-/**
- * Created by Ondra on 10/03/15.
- */
-public class MapView {
+import no.ntnu.tdt4240.a18.battlingships.R;
+import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
-    private ArrayList<ShipView> ships = new ArrayList<>();
+public class MapView extends Activity {
 
-    public MapView() {
-        ships.add(new ShipView());
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        setContentView(R.layout.activity_map_view);
+        final ShipController aController = (ShipController) getApplicationContext();
+    }
+
+    /** Called when the user clicks the "Ending View" button */
+    public void endGame(View view) {
+        Intent intent = new Intent(this, EndingView.class);
+        startActivity(intent);
+    }
+
+    public void goToAction(View view){
+        Intent intent = new Intent(this, ActionView.class);
+        startActivity(intent);
     }
 
 }

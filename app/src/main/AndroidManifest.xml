@@ -25,7 +25,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".view.GameView"
+            android:name=".view.MapView"
             android:label="@string/title_activity_game_view"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -52,6 +52,7 @@
             android:name=".view.ActionView"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_action_view"
+            android:noHistory="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
     </application>

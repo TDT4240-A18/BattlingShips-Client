@@ -18,7 +18,8 @@
         android:layout_toRightOf="@+id/leftButton"
         android:layout_toEndOf="@+id/leftButton"
         android:layout_marginTop="104dp"
-        android:background="#FF0000FF" />
+        android:background="#FF0000FF"
+        android:onClick="up" />
 
     <Button
         android:layout_width="50dp"
@@ -26,7 +27,8 @@
         android:id="@+id/rightButton"
         android:background="#FF0000FF"
         android:layout_toRightOf="@+id/upButton"
-        android:layout_below="@+id/upButton" />
+        android:layout_below="@+id/upButton"
+        android:onClick="right" />
 
     <Button
         android:layout_width="50dp"
@@ -35,7 +37,8 @@
         android:layout_alignTop="@+id/rightButton"
         android:layout_toLeftOf="@+id/downButton"
         android:layout_toStartOf="@+id/downButton"
-        android:background="#FF0000FF" />
+        android:background="#FF0000FF"
+        android:onClick="left" />
 
     <Button
         android:layout_width="50dp"
@@ -43,7 +46,8 @@
         android:id="@+id/downButton"
         android:layout_below="@+id/rightButton"
         android:layout_centerHorizontal="true"
-        android:background="#FF0000FF" />
+        android:background="#FF0000FF"
+        android:onClick="down" />
 
     <Button
         android:layout_width="50dp"
@@ -54,7 +58,8 @@
         android:layout_alignRight="@+id/rightButton"
         android:layout_alignEnd="@+id/rightButton"
         android:layout_toRightOf="@+id/upButton"
-        android:layout_toEndOf="@+id/upButton" />
+        android:layout_toEndOf="@+id/upButton"
+        android:onClick="upRight" />
 
     <Button
         android:layout_width="50dp"
@@ -64,16 +69,18 @@
         android:background="#FF0000FF"
         android:layout_toLeftOf="@+id/upButton"
         android:layout_alignLeft="@+id/leftButton"
-        android:layout_alignStart="@+id/leftButton" />
+        android:layout_alignStart="@+id/leftButton"
+        android:onClick="upLeft" />
 
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/button"
+        android:id="@+id/dlbutton"
         android:layout_alignTop="@+id/downButton"
         android:layout_toLeftOf="@+id/downButton"
         android:layout_toStartOf="@+id/downButton"
-        android:background="#FF0000FF" />
+        android:background="#FF0000FF"
+        android:onClick="downLeft" />
 
     <Button
         android:layout_width="50dp"
@@ -82,7 +89,8 @@
         android:layout_alignTop="@+id/downButton"
         android:layout_alignLeft="@+id/urButton"
         android:layout_alignStart="@+id/urButton"
-        android:background="#FF0000FF" />
+        android:background="#FF0000FF"
+        android:onClick="downRight" />
 
     <Button
         android:layout_width="50dp"
@@ -90,7 +98,8 @@
         android:id="@+id/cancelButton"
         android:layout_alignTop="@+id/rightButton"
         android:layout_toRightOf="@+id/leftButton"
-        android:layout_toEndOf="@+id/leftButton" />
+        android:layout_toEndOf="@+id/leftButton"
+        android:onClick="cancel" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -120,12 +129,13 @@
             android:text="Idle"
             android:id="@+id/idleButton"
             android:layout_above="@+id/shootButton"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button"
+            android:layout_alignLeft="@+id/dlbutton"
+            android:layout_alignStart="@+id/dlbutton"
             android:gravity="center"
             android:layout_toLeftOf="@+id/downButton"
             android:layout_toStartOf="@+id/downButton"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:onClick="idle" />
 
         <Button
             android:layout_width="85dp"
@@ -148,7 +158,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/drButton"
             android:layout_alignStart="@+id/drButton"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="shoot" />
 
     </LinearLayout>
 

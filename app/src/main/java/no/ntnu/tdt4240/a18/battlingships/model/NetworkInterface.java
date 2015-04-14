@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class NetworkInterface {
 
     private static NetworkInterface instance = null;
-
+    private String playerlist = "";
     private Context context;
 
     /**
@@ -31,6 +31,9 @@ public class NetworkInterface {
         return instance;
     }
 
+    public String getPlayerlist(){
+        return playerlist;
+    }
     /**
      * This method checks overall status of the network connection.
      *
@@ -63,6 +66,8 @@ public class NetworkInterface {
         try {
             Log.i("", "->operation : " + jsonObject.getString("tag"));
             Log.i("", "->result: " + jsonObject.getString("desc"));
+            Log.i("", "->Players: " + jsonObject.getString("obj"));
+            playerlist = jsonObject.getString("obj");
         } catch (JSONException e) {
             e.printStackTrace();
         }

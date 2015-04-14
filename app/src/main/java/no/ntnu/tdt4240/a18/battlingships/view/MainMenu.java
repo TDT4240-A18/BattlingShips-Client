@@ -14,24 +14,13 @@ import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
 public class MainMenu extends Activity {
 
     private ShipController aController;
-    private NetworkInterface net;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        net = NetworkInterface.getInstance(getApplicationContext());
-//        net.checkStatus();
-
         setContentView(R.layout.activity_main_menu);
 
         aController = (ShipController) getApplicationContext();
-        atextingmethod();
-    }
 
-    private void atextingmethod() {
-
-        String name = "aa";
-        net.create(name);
     }
 
 

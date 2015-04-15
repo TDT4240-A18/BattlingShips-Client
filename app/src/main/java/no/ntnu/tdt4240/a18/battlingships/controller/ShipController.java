@@ -18,7 +18,7 @@ public class ShipController extends Application {
     private Board board = new Board();
     private Gamerules rules = new BasicGame(board);
     private Game game = new Game(rules, board);
-    private NetworkInterface net = null;//new NetworkInterface();
+    private NetworkInterface net = NetworkInterface.getInstance(this);//new NetworkInterface();
 
     public Player getPlayer() {
         return player;

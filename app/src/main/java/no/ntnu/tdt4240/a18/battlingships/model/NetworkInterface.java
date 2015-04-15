@@ -71,7 +71,7 @@ public class NetworkInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.i("", "all response infor: " + jsonObject.toString());
+        Log.i("", "all response info: " + jsonObject.toString());
     }
 
 

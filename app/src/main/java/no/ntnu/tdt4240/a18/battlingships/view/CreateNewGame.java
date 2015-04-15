@@ -40,7 +40,8 @@ public class CreateNewGame extends Activity {
         //aController.getNet().create(username);
         aController.getPlayer().setUsername(username);
         NetworkInterface net = NetworkInterface.getInstance(getApplicationContext());
-        net.create(username);
+        aController.getNet().create(username);
+        //net.create(username);
         Intent intent = new Intent(this, JoinGameView.class);
         startActivity(intent);
     }

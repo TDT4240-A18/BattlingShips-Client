@@ -33,4 +33,6 @@
 
     <string name="mapView_actionBtn">Perform Action</string>
 
+    <string name="game_JoinMessage">You just joined the party.</string>
+
 </resources>

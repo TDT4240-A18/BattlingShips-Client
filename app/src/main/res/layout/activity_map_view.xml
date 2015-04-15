@@ -8,22 +8,17 @@ tools:context="no.ntnu.tdt4240.a18.battlingships.view.MapView">
      TextureView, etc. -->
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
+        android:id="@+id/gameLog"
         android:gravity="bottom"
         android:paddingTop="10dp"
         android:paddingRight="5dp"
         android:paddingLeft="5dp"
         android:background="#a6000000">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You just joined the party."
-            android:id="@+id/textView4"
-            android:textColor="#ff13bd00" />
     </LinearLayout>
 
     <LinearLayout

@@ -13,7 +13,6 @@ import java.util.Arrays;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
-import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
 
 public class JoinGameView extends Activity {
     ListView listView;
@@ -30,7 +29,7 @@ public class JoinGameView extends Activity {
         begin = (Button) findViewById(R.id.button5);
         name =(EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
-        String[] values = new String[]{aController.getNet().getPlayerlist()};
+        String[] values = aController.getNet().getPlayerlist();
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this,
@@ -54,7 +53,7 @@ public class JoinGameView extends Activity {
         aController.getNet().ready(aController.getPlayer().toString());
     }
     public void begin(View view) {
-        String[] values = new String[]{aController.getNet().getPlayerlist()};
+        String[] values = aController.getNet().getPlayerlist();
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();

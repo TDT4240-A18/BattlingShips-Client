@@ -1,130 +1,136 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="no.ntnu.tdt4240.a18.battlingships.view.ActionView"
-    android:background="#a6000000"
-    android:id="@+id/action_view">
+    android:orientation="vertical"
+    android:id="@+id/action_view"
+    android:background="#0099cc">
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/upButton"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/leftButton"
-        android:layout_toEndOf="@+id/leftButton"
-        android:layout_marginTop="104dp"
-        android:background="#FF0000FF"
-        android:onClick="up" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp">
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/rightButton"
-        android:background="#FF0000FF"
-        android:layout_toRightOf="@+id/upButton"
-        android:layout_below="@+id/upButton"
-        android:onClick="right" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/leftButton"
-        android:layout_alignTop="@+id/rightButton"
-        android:layout_toLeftOf="@+id/downButton"
-        android:layout_toStartOf="@+id/downButton"
-        android:background="#FF0000FF"
-        android:onClick="left" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/ulButton"
+                android:background="#FF0000FF"
+                android:onClick="upLeft"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/downButton"
-        android:layout_below="@+id/rightButton"
-        android:layout_centerHorizontal="true"
-        android:background="#FF0000FF"
-        android:onClick="down" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/upButton"
+                android:background="#FF0000FF"
+                android:onClick="up"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/urButton"
-        android:layout_alignTop="@+id/upButton"
-        android:background="#FF0000FF"
-        android:layout_alignRight="@+id/rightButton"
-        android:layout_alignEnd="@+id/rightButton"
-        android:layout_toRightOf="@+id/upButton"
-        android:layout_toEndOf="@+id/upButton"
-        android:onClick="upRight" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/urButton"
+                android:background="#FF0000FF"
+                android:onClick="upRight"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/ulButton"
-        android:layout_above="@+id/leftButton"
-        android:background="#FF0000FF"
-        android:layout_toLeftOf="@+id/upButton"
-        android:layout_alignLeft="@+id/leftButton"
-        android:layout_alignStart="@+id/leftButton"
-        android:onClick="upLeft" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/dlbutton"
-        android:layout_alignTop="@+id/downButton"
-        android:layout_toLeftOf="@+id/downButton"
-        android:layout_toStartOf="@+id/downButton"
-        android:background="#FF0000FF"
-        android:onClick="downLeft" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/leftButton"
+                android:background="#FF0000FF"
+                android:onClick="left"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/drButton"
-        android:layout_alignTop="@+id/downButton"
-        android:layout_alignLeft="@+id/urButton"
-        android:layout_alignStart="@+id/urButton"
-        android:background="#FF0000FF"
-        android:onClick="downRight" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/cancelButton"
+                android:onClick="cancel"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/cancelButton"
-        android:layout_alignTop="@+id/rightButton"
-        android:layout_toRightOf="@+id/leftButton"
-        android:layout_toEndOf="@+id/leftButton"
-        android:onClick="cancel" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/rightButton"
+                android:background="#FF0000FF"
+                android:onClick="right"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/dlbutton"
+                android:background="#FF0000FF"
+                android:onClick="downLeft"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/downButton"
+                android:background="#FF0000FF"
+                android:onClick="down"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/drButton"
+                android:background="#FF0000FF"
+                android:onClick="downRight"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="false"
-        android:weightSum="1"
-        android:layout_alignParentBottom="true">
+        android:weightSum="1">
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:text="Move"
             android:id="@+id/moveButton"
             android:layout_above="@+id/shootButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:gravity="center"
-            android:layout_gravity="bottom"
-            android:layout_weight="1.10"
+            android:layout_gravity="center|bottom"
+            android:layout_weight="0.25"
             android:onClick="move" />
 
         <Button
-            android:layout_width="85dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Idle"
             android:id="@+id/idleButton"
@@ -134,10 +140,11 @@
             android:gravity="center"
             android:layout_toLeftOf="@+id/downButton"
             android:layout_toStartOf="@+id/downButton"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="center|bottom"
+            android:layout_weight="0.25" />
 
         <Button
-            android:layout_width="85dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Map"
             android:id="@+id/mapButton"
@@ -145,11 +152,12 @@
             android:layout_alignParentRight="false"
             android:layout_alignParentEnd="false"
             android:gravity="center"
-            android:layout_gravity="bottom"
-            android:onClick="mapView" />
+            android:layout_gravity="center"
+            android:onClick="mapView"
+            android:layout_weight="0.25" />
 
         <Button
-            android:layout_width="85dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Shoot"
             android:id="@+id/shootButton"
@@ -157,8 +165,10 @@
             android:layout_alignLeft="@+id/drButton"
             android:layout_alignStart="@+id/drButton"
             android:gravity="center"
-            android:onClick="shoot" />
+            android:onClick="shoot"
+            android:layout_weight="0.25"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

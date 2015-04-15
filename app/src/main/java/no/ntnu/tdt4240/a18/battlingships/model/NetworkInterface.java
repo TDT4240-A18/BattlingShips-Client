@@ -12,8 +12,9 @@ import org.json.JSONObject;
 public class NetworkInterface {
 
     private static NetworkInterface instance = null;
-    private String playerlist = "";
+    private String[] playerlist = {null};
     private Context context;
+    private String gameCreated = "";
 
     /**
      * application context
@@ -31,7 +32,8 @@ public class NetworkInterface {
         return instance;
     }
 
-    public String getPlayerlist(){
+    public String getgameCreated(){return gameCreated; }
+    public String[] getPlayerlist(){
         return playerlist;
     }
     /**
@@ -67,7 +69,14 @@ public class NetworkInterface {
             Log.i("", "->operation : " + jsonObject.getString("tag"));
             Log.i("", "->result: " + jsonObject.getString("desc"));
             Log.i("", "->Players: " + jsonObject.getString("obj"));
-            playerlist = jsonObject.getString("obj");
+
+            if (jsonObject.getString("obj").charAt(0)=='n') {
+                playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
+            }
+            else {
+                playerlist = jsonObject.getString("obj").substring(1,jsonObject.getString("obj").length()-1).split(",");
+            }
+            gameCreated = jsonObject.getString("desc");
         } catch (JSONException e) {
             e.printStackTrace();
         }

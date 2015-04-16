@@ -70,8 +70,8 @@ public class NetworkInterface {
             Log.i("", "->result: " + jsonObject.getString("desc"));
             Log.i("", "->Players: " + jsonObject.getString("obj"));
 
-            if (jsonObject.getString("obj").charAt(0)=='n') {
-                playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
+            if (jsonObject.getString("obj").isEmpty()) {
+                //playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
             }
             else {
                 playerlist = jsonObject.getString("obj").substring(1,jsonObject.getString("obj").length()-1).split(",");

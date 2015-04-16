@@ -33,7 +33,7 @@ public class BasicGame implements Gamerules {
             if (ship.getPosX()-posX == 0 && ship.getPosY()-posY == 0) {
                 return false;
             }
-            return true;
+            else{ return true;}
         }
         else{ return false;}
     }

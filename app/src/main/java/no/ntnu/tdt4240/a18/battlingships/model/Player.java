@@ -10,7 +10,7 @@ public class Player {
     private Ship ship = null;
     private String username = "";
     private boolean ready;
-
+    private Boolean[][] visibility = {{false,false,false,false},{false,false,false,false},{false,false,false,false},{false,false,false,false}};
 
     public Player(){
         ready = false;
@@ -18,6 +18,11 @@ public class Player {
     public void imReady(){
         ready = true;
     }
+    public void canSee(){
+        visibility[ship.getPosY()][ship.getPosX()] = true;
+    }
+    public Boolean[][] getVisibility(){return visibility;}
+
     public boolean getReady(){
         return ready;
     }

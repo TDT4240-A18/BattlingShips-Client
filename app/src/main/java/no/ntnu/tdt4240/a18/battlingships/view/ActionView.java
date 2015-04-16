@@ -128,14 +128,14 @@ public class ActionView extends Activity {
         }
     }
     //Doing actions
-
+    //for these to work we need to set a value to the X and Y of the ship
     public void upLeft(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),-1,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),-1,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
             }
         }
         else{
@@ -143,12 +143,12 @@ public class ActionView extends Activity {
         }
     }
     public void upRight(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),1,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),1,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
             }
         }
         else{
@@ -156,12 +156,12 @@ public class ActionView extends Activity {
         }
     }
     public void up(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 0,-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),0,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),0,-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
             }
         }
         else{
@@ -169,12 +169,12 @@ public class ActionView extends Activity {
         }
     }
     public void left(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,0)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),-1,0);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),-1,0);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
             }
         }
         else {
@@ -183,12 +183,12 @@ public class ActionView extends Activity {
     }
 
     public void right(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,0)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),1,0);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),1,0);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
             }
         }
         else{
@@ -197,12 +197,12 @@ public class ActionView extends Activity {
 
     }
     public void downLeft(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),-1,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),-1,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
             }
         }
         else{
@@ -211,12 +211,12 @@ public class ActionView extends Activity {
     }
 
     public void downRight(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),1,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),1,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
             }
         }
         else{
@@ -224,17 +224,17 @@ public class ActionView extends Activity {
         }
     }
     public void down(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 0,1)){
+        //if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),0,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),0,1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
             }
-        }
-        else{
+        //}
+        //else{
             //give player message that move is invalid
-        }
+        //}
     }
     public void idle(View view){
         aController.getNet().move(aController.getPlayer().toString(),0,0);

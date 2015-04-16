@@ -128,51 +128,117 @@ public class ActionView extends Activity {
         }
     }
     //Doing actions
-    /*
+
     public void upLeft(View view){
-        if(shoot||move){
-            action(-1,-1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),-1,-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),-1,-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void upRight(View view){
-        if(shoot||move) {
-            action(1, -1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),1,-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),1,-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void up(View view){
-        if(shoot||move) {
-            action(0, -1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 0,-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),0,-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),0,-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void left(View view){
-        if(shoot||move) {
-            action(-1, 0, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,0)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),-1,0);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),-1,0);
+            }
+        }
+        else {
+            //give player message that move is invalid
         }
     }
+
     public void right(View view){
-        if(shoot||move) {
-            action(1, 0, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,0)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),1,0);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),1,0);
+            }
         }
+        else{
+            //give player message that move is invalid
+        }
+
     }
     public void downLeft(View view){
-        if(shoot||move) {
-            action(-1, 1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), -1,1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),-1,1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),-1,1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
+
     public void downRight(View view){
-        if(shoot||move) {
-            action(1, 1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 1,1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),1,1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),1,1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void down(View view){
-        if(shoot||move) {
-            action(0, 1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), 0,1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),0,1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),0,1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void idle(View view){
-        action(0,0,false,false);
+        aController.getNet().move(aController.getPlayer().toString(),0,0);
     }
-    */
 
 
 

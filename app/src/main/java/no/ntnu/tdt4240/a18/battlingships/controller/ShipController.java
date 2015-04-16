@@ -28,6 +28,8 @@ public class ShipController extends Application {
         return game;
     }
 
+    public Gamerules getRules() { return rules; }
+
     public Board getBoard() {
         return board;
     }

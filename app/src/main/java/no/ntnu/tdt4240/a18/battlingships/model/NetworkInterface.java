@@ -9,12 +9,13 @@ import org.json.JSONObject;
 /**
  * Created by Ondra on 10/03/15.
  */
-public class NetworkInterface {
+public class NetworkInterface implements ActionListener {
 
     private static NetworkInterface instance = null;
     private String[] playerlist = {null};
     private Context context;
     private String gameCreated = "";
+
 
     /**
      * application context
@@ -23,6 +24,7 @@ public class NetworkInterface {
      */
     private NetworkInterface(Context context) {
         this.context = context;
+        HTTPRequest.addListener(this);
     }
 
     public static NetworkInterface getInstance(Context context) {
@@ -32,19 +34,22 @@ public class NetworkInterface {
         return instance;
     }
 
-    public String getgameCreated(){return gameCreated; }
-    public String[] getPlayerlist(){
+    public String getgameCreated() {return gameCreated; }
+
+    public String[] getPlayerlist() {
         return playerlist;
     }
+
     /**
      * This method checks overall status of the network connection.
-     *
+     * <p/>
      * It should make available information if there is connection to the server and some game on the server.
      */
-    public void imReady(String name){
+    public void imReady(String name) {
         //need to send to the server that this person is ready
     }
-    public String creator(){
+
+    public String creator() {
         //ask server who created the game
         return null;
     }
@@ -70,12 +75,14 @@ public class NetworkInterface {
             Log.i("", "->result: " + jsonObject.getString("desc"));
             Log.i("", "->Players: " + jsonObject.getString("obj"));
 
-            if (jsonObject.getString("obj").charAt(0)=='n') {
-                playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
-            }
-            else {
-                playerlist = jsonObject.getString("obj").substring(1,jsonObject.getString("obj").length()-1).split(",");
-            }
+//            if (jsonObject.getString("obj").charAt(0) == 'n') {
+//                playerlist =
+//                        jsonObject.getString("obj").substring(11, jsonObject.getString("obj").length() - 1).split(",");
+//            } else {
+                //                playerlist =
+                //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length
+                // () - 1).split(",");
+//            }
             gameCreated = jsonObject.getString("desc");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -151,6 +158,11 @@ public class NetworkInterface {
      */
     public void finish(String username) {
         HTTPRequest.send(context, "action", "shoot", "?username=" + username);
+    }
+
+
+    public void infor() {
+        HTTPRequest.send(context, "action", "infor");
     }
 
     //

@@ -7,24 +7,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
-import no.ntnu.tdt4240.a18.battlingships.model.NetworkInterface;
+import no.ntnu.tdt4240.a18.battlingships.model.PerformInBackground;
 
 public class MainMenu extends Activity {
 
     private ShipController aController;
     //Timer t = new Timer();
+
+    private PerformInBackground performInBackground;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
         aController = (ShipController) getApplicationContext();
-
+        performInBackground = PerformInBackground.getInstance(getApplicationContext());
+        performInBackground.execute();
     }
 
 
@@ -50,7 +51,9 @@ public class MainMenu extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the user clicks the "Game View" button */
+    /**
+     * Called when the user clicks the "Game View" button
+     */
     public void createNewGame(View view) {
     /*    t.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -74,19 +77,25 @@ public class MainMenu extends Activity {
         startActivity(intent);
     }
 
-    /** Called when the user clicks the "CreditView" button */
+    /**
+     * Called when the user clicks the "CreditView" button
+     */
     public void showCredits(View view) {
         Intent intent = new Intent(this, CreditView.class);
         startActivity(intent);
     }
 
-    /** Called when the user clicks the "JoinView" button */
+    /**
+     * Called when the user clicks the "JoinView" button
+     */
     public void joinGame(View view) {
         Intent intent = new Intent(this, JoinGameView.class);
         startActivity(intent);
     }
-    
-    /** Called when the user clicks the "Game View" button */
+
+    /**
+     * Called when the user clicks the "Game View" button
+     */
     public void exitApp(View view) {
         finish();
         System.exit(0);

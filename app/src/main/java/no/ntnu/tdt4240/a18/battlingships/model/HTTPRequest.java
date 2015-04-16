@@ -13,6 +13,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 
 /**
  * This file is part of BattlingShips-Client
@@ -21,7 +23,18 @@ import org.json.JSONObject;
  */
 public class HTTPRequest {
     private String response;
+    private static ArrayList<ActionListener> actionListeners = new ArrayList<>();
+
     private static NetworkInterface networkInterface;
+
+    /**
+     * add action listener to listener list
+     *
+     * @param listener
+     */
+    public static void addListener(ActionListener listener) {
+        actionListeners.add(listener);
+    }
 
     public static void send(Context context, String namespace, String action) {
         send(context, namespace, action, "");
@@ -31,7 +44,7 @@ public class HTTPRequest {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.75.158:8080/" + namespace + "/" + action + suffix;
+        String url = "http://78.91.73.22:8080/" + namespace + "/" + action + suffix;
         Log.i("http error", "url: " + url);
 
 
@@ -40,9 +53,15 @@ public class HTTPRequest {
             @Override
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
-                Log.i(this.getClass().getSimpleName(), "Response is: " + response);
+                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
                 try {
-                    networkInterface.getInstance(context).response(new JSONObject(response));
+
+                    JSONObject job = new JSONObject(response);
+                    //                    networkInterface.getInstance(context).response(job);
+                    for (ActionListener listener : actionListeners) {
+                        listener.response(job);
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -42,7 +42,7 @@
             android:editable="true"
             android:elegantTextHeight="true"
             android:enabled="true"
-            android:hint="@string/createGameForm_username_hint"
+            android:hint="username"
             android:padding="10dp"
             android:width="200dp"
             android:layout_below="@+id/textView"

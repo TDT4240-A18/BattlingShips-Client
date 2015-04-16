@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class MapView extends Activity {
         setContentView(R.layout.activity_map_view);
 
         addMessage(this.getString(R.string.game_JoinMessage));
+        scaleMapTiles();
 
         //final ShipController aController = (ShipController) getApplicationContext();
     }
@@ -71,6 +73,26 @@ public class MapView extends Activity {
             tv.setText(messages.get(msg_index));
             msgLayout.addView(tv);
         }
+    }
+
+    /**
+     * This function scales all the buttons to the screen size with keeping tiles squared.
+     *
+     * For now it should stretch buttons to max size according to width only! So it can overflow!
+     */
+    private void scaleMapTiles() {
+        LinearLayout gameMap = (LinearLayout)findViewById(R.id.gameMap);
+        int size = gameMap.getWidth()/4;
+
+        for (int i = 0; i < gameMap.getChildCount(); i++) {
+            LinearLayout row = (LinearLayout)gameMap.getChildAt(i);
+            for (int j = 0; j < row.getChildCount(); j++) {
+                Button btn = (Button)row.getChildAt(j);
+                btn.setWidth(size);
+                btn.setHeight(size);
+            }
+        }
+
     }
 
 }

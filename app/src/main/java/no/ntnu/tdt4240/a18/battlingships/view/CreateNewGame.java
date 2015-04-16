@@ -37,11 +37,8 @@ public class CreateNewGame extends Activity {
             System.out.println("Number of players: " + playerCnt);
             System.out.println();
         }*/
-        //aController.getNet().create(username);
-        aController.getPlayer().setUsername(username);
-        NetworkInterface net = NetworkInterface.getInstance(getApplicationContext());
         aController.getNet().create(username);
-        //net.create(username);
+        aController.getPlayer().setUsername(username);
         Intent intent = new Intent(this, JoinGameView.class);
         startActivity(intent);
     }

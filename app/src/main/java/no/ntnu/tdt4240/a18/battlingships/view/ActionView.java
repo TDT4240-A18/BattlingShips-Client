@@ -128,51 +128,117 @@ public class ActionView extends Activity {
         }
     }
     //Doing actions
-    /*
+    //for these to work we need to set a value to the X and Y of the ship
     public void upLeft(View view){
-        if(shoot||move){
-            action(-1,-1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void upRight(View view){
-        if(shoot||move) {
-            action(1, -1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void up(View view){
-        if(shoot||move) {
-            action(0, -1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void left(View view){
-        if(shoot||move) {
-            action(-1, 0, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY())){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
+            }
+        }
+        else {
+            //give player message that move is invalid
         }
     }
+
     public void right(View view){
-        if(shoot||move) {
-            action(1, 0, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY())){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
+            }
         }
+        else{
+            //give player message that move is invalid
+        }
+
     }
     public void downLeft(View view){
-        if(shoot||move) {
-            action(-1, 1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
+
     public void downRight(View view){
-        if(shoot||move) {
-            action(1, 1, shoot, move);
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1)){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
+            }
+        }
+        else{
+            //give player message that move is invalid
         }
     }
     public void down(View view){
-        if(shoot||move) {
-            action(0, 1, shoot, move);
-        }
+        //if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY())){
+            if(move){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
+            }
+            else if(shoot){
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
+            }
+        //}
+        //else{
+            //give player message that move is invalid
+        //}
     }
     public void idle(View view){
-        action(0,0,false,false);
+        aController.getNet().move(aController.getPlayer().toString(),0,0);
     }
-    */
 
 
 

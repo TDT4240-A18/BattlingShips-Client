@@ -83,6 +83,12 @@ public class NetworkInterface implements ActionListener {
                 //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length
                 // () - 1).split(",");
 //            }
+            if (jsonObject.getString("obj").isEmpty()) {
+                //playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
+            }
+            else {
+                playerlist = jsonObject.getString("obj").substring(1,jsonObject.getString("obj").length()-1).split(",");
+            }
             gameCreated = jsonObject.getString("desc");
         } catch (JSONException e) {
             e.printStackTrace();

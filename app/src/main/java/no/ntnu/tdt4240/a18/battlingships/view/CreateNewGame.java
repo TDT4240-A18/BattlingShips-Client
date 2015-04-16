@@ -37,9 +37,8 @@ public class CreateNewGame extends Activity {
             System.out.println("Number of players: " + playerCnt);
             System.out.println();
         }*/
-        //aController.getNet().create(username);
-        aController.getPlayer().setUsername(username);
         aController.getNet().create(username);
+        aController.getPlayer().setUsername(username);
         Intent intent = new Intent(this, JoinGameView.class);
         startActivity(intent);
     }

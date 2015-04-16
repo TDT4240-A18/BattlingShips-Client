@@ -1,6 +1,7 @@
 package no.ntnu.tdt4240.a18.battlingships.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,9 +60,12 @@ public class JoinGameView extends Activity {
         aController.getNet().ready(aController.getPlayer().toString());
     }
     public void begin(View view) {
+        Intent intent = new Intent(this, MapView.class);
+        startActivity(intent);
+        /*
         String[] values = aController.getNet().getPlayerlist();
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();   */
     }
 }

@@ -1,10 +1,7 @@
 package no.ntnu.tdt4240.a18.battlingships.model.ruleset;
 
-import java.util.ArrayList;
-
 import no.ntnu.tdt4240.a18.battlingships.model.Board;
 import no.ntnu.tdt4240.a18.battlingships.model.Gamerules;
-import no.ntnu.tdt4240.a18.battlingships.model.Player;
 import no.ntnu.tdt4240.a18.battlingships.model.Ship;
 
 /**
@@ -64,9 +61,9 @@ public class BasicGame implements Gamerules {
     @Override
     //returns true if the ship collides with another ship (this should be run after the move is confirmed as valid.
     public boolean checkCollide(Ship ship, int posX, int posY) {
-        if (board.checkOccupied(posX,posY)){
-            return true;
-        }
+//        if (board.checkOccupied(posX,posY)){
+//            return true;
+//        }
         return false;
     }
 }

@@ -15,13 +15,11 @@ public class PerformInBackground extends AsyncTask {
     private static PerformInBackground instance = null;
     private Context context;
     private NetworkInterface networkInterface;
-    //    private ArrayList<ActionListener> listeners;
 
 
     private PerformInBackground(Context context) {
         this.context = context;
         networkInterface = NetworkInterface.getInstance(context);
-        //        listeners = new ArrayList<>();
     }
 
     public static PerformInBackground getInstance(Context context) {
@@ -30,15 +28,6 @@ public class PerformInBackground extends AsyncTask {
         }
         return instance;
     }
-
-    //    /**
-    //     * add listener to listener list
-    //     *
-    //     * @param listener
-    //     */
-    //    public void addListener(ActionListener listener) {
-    //        listeners.add(listener);
-    //    }
 
     /**
      * Override this method to perform a computation on a background thread. The specified parameters are the parameters
@@ -58,23 +47,18 @@ public class PerformInBackground extends AsyncTask {
     }
 
     public void startLoop() {
-        //        final Handler handler = new Handler();
         Timer timer = new Timer();
         TimerTask doAsynchronousTask = new TimerTask() {
             @Override
             public void run() {
-                //                handler.post(new Runnable() {
-                //                    public void run() {
                 try {
                     networkInterface.infor();
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                //                    }
-                //                });
             }
         };
-        timer.schedule(doAsynchronousTask, 6000, 1000);
+        timer.schedule(doAsynchronousTask, 1000, 1000);
     }
 }

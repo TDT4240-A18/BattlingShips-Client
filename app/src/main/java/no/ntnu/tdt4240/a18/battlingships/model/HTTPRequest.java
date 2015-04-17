@@ -44,9 +44,7 @@ public class HTTPRequest {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.73.22:8080/" + namespace + "/" + action + suffix;
-        Log.i("http error", "url: " + url);
-
+        String url = "http://78.91.74.235:8080/" + namespace + "/" + action + suffix;
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -92,36 +90,44 @@ public class HTTPRequest {
             obj = job.getString("obj").toString();
             desc = job.getString("desc").toString();
 
-            if (tag.equalsIgnoreCase("finish")) {
-                listener.gameFinished(job.getString("desc"));
-            }
-//            if () listener.newPlayerJoined(); listener.onAction();
-//            listener.readyStatus();
-//            listener.gameStarted();
-//            listener.aPlayerDead();
 
-            if (tag.equalsIgnoreCase("check") && desc.equalsIgnoreCase("no game created")) {
+            // is there a game created at the server
+            if ((tag.equalsIgnoreCase("check") || tag.equalsIgnoreCase("infor")) &&
+                    desc.equalsIgnoreCase("no game " + "created")) {
                 listener.isThereAgame(false);
             } else if (tag.equalsIgnoreCase("check") && desc.equalsIgnoreCase("have game")) {
                 listener.isThereAgame(true);
             }
+
+            //new player joined the game
+            if (tag.equalsIgnoreCase("")) {
+
+            }
+
+
+            // game finished
+            if (tag.equalsIgnoreCase("finish")) {
+                listener.gameFinished(job.getString("desc"));
+            }
+            //            if () listener.newPlayerJoined(); listener.onAction();
+            //            listener.readyStatus();
+            //            listener.gameStarted();
+            //            listener.aPlayerDead();
             if (tag.equalsIgnoreCase("finish")) {
 
             }
             if (tag.equalsIgnoreCase("finish")) {
 
             }
-            if (tag.equalsIgnoreCase("finish")) {
 
-            }
-            if (tag.equalsIgnoreCase("finish")) {
-
+            // join result
+            if (tag.equalsIgnoreCase("join")) {
+                listener.joinResult(desc);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
 
     }
 }

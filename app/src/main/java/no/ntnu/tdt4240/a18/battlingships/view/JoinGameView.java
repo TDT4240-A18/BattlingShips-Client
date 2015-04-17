@@ -40,7 +40,7 @@ public class JoinGameView extends Activity implements ActionListener {
         name.setText(aController.getPlayer().toString());
 
         // TODO: need to find the playerlist somewhere else, maybe directly from the response
-        String[] values = aController.getNet().getPlayerlist();
+        String[] values = null;// aController.getNet().getPlayerlist();
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
@@ -152,6 +152,15 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param reason : why game is gameFinished
      */
     @Override public void gameFinished(String reason) {
+
+    }
+
+    /**
+     * the join result for a player to join the game
+     *
+     * @param result
+     */
+    @Override public void joinResult(String result) {
 
     }
 

@@ -3,15 +3,14 @@ package no.ntnu.tdt4240.a18.battlingships.model;
 import android.content.Context;
 
 /**
- * Created by Ondra on 10/03/15.
+ * This file is part of BattlingShips-Client
+ * <p/>
+ * Created Chun Fan & GuoJunjun <junjunguo.com> on April 16, 2015.
  */
 public class NetworkInterface {
 
     private static NetworkInterface instance = null;
-    private String[] playerlist = {null};
     private Context context;
-    private String gameCreated = "";
-
 
     /**
      * application context
@@ -29,27 +28,6 @@ public class NetworkInterface {
         }
         return instance;
     }
-
-    public String getgameCreated() {return gameCreated; }
-
-    public String[] getPlayerlist() {
-        return playerlist;
-    }
-
-    /**
-     * This method checks overall status of the network connection.
-     * <p/>
-     * It should make available information if there is connection to the server and some game on the server.
-     */
-    public void imReady(String name) {
-        //need to send to the server that this person is ready
-    }
-
-    public String creator() {
-        //ask server who created the game
-        return null;
-    }
-
 
     /**
      * send server a request to build a game
@@ -179,7 +157,9 @@ public class NetworkInterface {
         HTTPRequest.send(context, "action", "shoot", "?username=" + username);
     }
 
-
+    /**
+     * check information
+     */
     public void infor() {
         HTTPRequest.send(context, "action", "infor");
     }

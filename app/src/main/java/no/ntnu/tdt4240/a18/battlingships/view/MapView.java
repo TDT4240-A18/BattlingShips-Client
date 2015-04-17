@@ -255,6 +255,15 @@ public class MapView extends Activity implements ActionListener {
     }
 
     /**
+     * the join result for a player to join the game
+     *
+     * @param result
+     */
+    @Override public void joinResult(String result) {
+
+    }
+
+    /**
      * all responses from the server
      *
      * @param jsonObject

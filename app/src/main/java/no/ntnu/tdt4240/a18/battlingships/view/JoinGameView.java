@@ -9,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
+import no.ntnu.tdt4240.a18.battlingships.model.ActionListener;
 
-public class JoinGameView extends Activity {
+public class JoinGameView extends Activity implements ActionListener {
     ListView listView;
     EditText name;
     ShipController aController;
@@ -33,6 +36,8 @@ public class JoinGameView extends Activity {
         name =(EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
         name.setText(aController.getPlayer().toString());
+
+        // TODO: need to find the playerlist somewhere else, maybe directly from the response
         String[] values = aController.getNet().getPlayerlist();
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
@@ -59,6 +64,9 @@ public class JoinGameView extends Activity {
     public void getReady(View view){
         aController.getNet().ready(aController.getPlayer().toString());
     }
+
+
+    //TODO: remove the button altogether when it is no longer needed
     public void begin(View view) {
         Intent intent = new Intent(this, MapView.class);
         startActivity(intent);
@@ -67,5 +75,34 @@ public class JoinGameView extends Activity {
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();   */
+    }
+
+    //listeners:
+
+    public void response(JSONObject JsonObj){
+
+    }
+
+    public void newPlayerJoinedGame(String list){
+        String[] values = list.substring(1,list.length()-1).split(",");
+        valuelist.clear();
+        valuelist.addAll(Arrays.asList(values));
+        adapter.notifyDataSetChanged();
+    }
+
+    public void readyStatus(String list){
+        String[] values = list.substring(1,list.length()-1).split(",");
+        valuelist.clear();
+        valuelist.addAll(Arrays.asList(values));
+        adapter.notifyDataSetChanged();
+    }
+
+    public void gameStarted(String[][] board){
+
+        // TODO:
+        //find own position and then create the ship inside player
+        //set visibilty for player
+        //set board as the board
+        //move to MapView
     }
 }

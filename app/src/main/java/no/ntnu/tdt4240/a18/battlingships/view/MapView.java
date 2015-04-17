@@ -92,7 +92,7 @@ public class MapView extends Activity {
         //final ShipController aController = (ShipController) getApplicationContext();
     }
 
-
+    //updates the colors for the buttons
     public void updateBoard(){
         for (int i=0;i<4;i++){
             for (int j=0;j<4;j++){

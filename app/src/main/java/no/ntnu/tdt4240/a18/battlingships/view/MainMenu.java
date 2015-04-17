@@ -60,26 +60,7 @@ public class MainMenu extends Activity implements ActionListener {
      * Called when the user clicks the "Game View" button
      */
     public void createNewGame(View view) {
-    /*    t.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (aController.getNet().getgameCreated()!=""){
-                    System.out.println(aController.getNet().getgameCreated());
-                    t.cancel();
-                }
-            }
-        },0,1000);
-        if (aController.getNet().getgameCreated()=="no game created"){
-            Intent intent = new Intent(this, CreateNewGame.class);
-            startActivity(intent);
-        }
-        else{
-            Intent intent = new Intent(this, JoinGameView.class);
-            startActivity(intent);
-        } */
-
-        Intent intent = new Intent(this, CreateNewGame.class);
-        startActivity(intent);
+        aController.getNet().check("");
     }
 
     /**
@@ -94,8 +75,7 @@ public class MainMenu extends Activity implements ActionListener {
      * Called when the user clicks the "JoinView" button
      */
     public void joinGame(View view) {
-        Intent intent = new Intent(this, JoinGameView.class);
-        startActivity(intent);
+        aController.getNet().check("");
     }
 
     /**
@@ -112,7 +92,15 @@ public class MainMenu extends Activity implements ActionListener {
      * @param b
      */
     @Override public void isThereAgame(boolean b) {
-
+        //based on if a game is created or not, go to either join or create game.
+        if (!b){
+            Intent intent = new Intent(this, CreateNewGame.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(this, JoinGameView.class);
+            startActivity(intent);
+        }
     }
 
     /**

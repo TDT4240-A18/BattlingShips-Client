@@ -44,7 +44,7 @@ public class HTTPRequest {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.73.22:8080/" + namespace + "/" + action + suffix;
+        String url = "http://78.91.74.235:8080/" + namespace + "/" + action + suffix;
         Log.i("http error", "url: " + url);
 
 

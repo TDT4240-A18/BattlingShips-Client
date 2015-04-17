@@ -64,9 +64,9 @@ public class BasicGame implements Gamerules {
     @Override
     //returns true if the ship collides with another ship (this should be run after the move is confirmed as valid.
     public boolean checkCollide(Ship ship, int posX, int posY) {
-        if (board.checkOccupied(posX,posY)){
-            return true;
-        }
+        //if (board.checkOccupied(posX,posY)){
+        //    return true;
+        //}
         return false;
     }
 }

@@ -83,21 +83,12 @@ public class JoinGameView extends Activity implements ActionListener {
     //listeners:
 
 
-    public void newPlayerJoinedGame(String list) {
-        String[] values = list.substring(1, list.length() - 1).split(",");
-        valuelist.clear();
-        valuelist.addAll(Arrays.asList(values));
-        adapter.notifyDataSetChanged();
-    }
-
     /**
      * tell if there is a game at the server
      *
      * @param b
      */
-    @Override public void isThereAgame(boolean b) {
-
-    }
+    @Override public void isThereAgame(boolean b) {}
 
     /**
      * a new player joined the game
@@ -105,10 +96,19 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param list
      */
     @Override public void newPlayerJoined(String list) {
-
+        String[] values = list.substring(1, list.length() - 1).split(",");
+        valuelist.clear();
+        valuelist.addAll(Arrays.asList(values));
+        adapter.notifyDataSetChanged();
     }
 
-    public void readyStatus(String list) {
+
+    /**
+     * list of players ready status
+     *
+     * @param list (playerName:boolean)
+     */
+    @Override public void readyStatus(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
@@ -123,6 +123,14 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param board : initial board
      */
     @Override public void gameStarted(String board) {
+        // TODO:
+        //set board as the board
+        //find own position and then create the ship inside player
+        //set visibilty for player
+
+        //move to MapView
+        Intent intent = new Intent(this, MapView.class);
+        startActivity(intent);
 
     }
 
@@ -162,15 +170,6 @@ public class JoinGameView extends Activity implements ActionListener {
      */
     @Override public void response(JSONObject jsonObject) {
 
-    }
-
-    public void gameStarted(String[][] board) {
-
-        // TODO:
-        //find own position and then create the ship inside player
-        //set visibilty for player
-        //set board as the board
-        //move to MapView
     }
 
     @Override protected void onDestroy() {

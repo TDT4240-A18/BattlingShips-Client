@@ -9,22 +9,22 @@ public class Player {
 
     private Ship ship = null;
     private String username = "";
-    private boolean ready;
+    private boolean dead;
     private Boolean[][] visibility = {{false,false,false,false},{false,false,false,false},{false,false,false,false},{false,false,false,false}};
 
     public Player(){
-        ready = false;
+        dead = false;
     }
-    public void imReady(){
-        ready = true;
+    public void iDied(){
+        dead = true;
     }
     public void canSee(){
         visibility[ship.getPosY()][ship.getPosX()] = true;
     }
     public Boolean[][] getVisibility(){return visibility;}
 
-    public boolean getReady(){
-        return ready;
+    public boolean getAlive(){
+        return dead;
     }
     public void setUsername(String name){
         username=name;

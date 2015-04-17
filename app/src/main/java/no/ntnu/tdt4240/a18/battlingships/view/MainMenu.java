@@ -7,11 +7,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.json.JSONObject;
+
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
+import no.ntnu.tdt4240.a18.battlingships.model.ActionListener;
+import no.ntnu.tdt4240.a18.battlingships.model.HTTPRequest;
 import no.ntnu.tdt4240.a18.battlingships.model.PerformInBackground;
 
-public class MainMenu extends Activity {
+public class MainMenu extends Activity implements ActionListener {
 
     private ShipController aController;
     //Timer t = new Timer();
@@ -26,6 +30,7 @@ public class MainMenu extends Activity {
         aController = (ShipController) getApplicationContext();
         performInBackground = PerformInBackground.getInstance(getApplicationContext());
         performInBackground.execute();
+        HTTPRequest.addListener(this);
     }
 
 
@@ -99,5 +104,81 @@ public class MainMenu extends Activity {
     public void exitApp(View view) {
         finish();
         System.exit(0);
+    }
+
+    /**
+     * tell if there is a game at the server
+     *
+     * @param b
+     */
+    @Override public void isThereAgame(boolean b) {
+
+    }
+
+    /**
+     * a new player joined the game
+     *
+     * @param list
+     */
+    @Override public void newPlayerJoined(String list) {
+
+    }
+
+    /**
+     * list of players ready status
+     *
+     * @param list (playerName:boolean)
+     */
+    @Override public void readyStatus(String list) {
+
+    }
+
+    /**
+     * report that the game is start now:
+     * <p/>
+     * report only once when the game start.
+     *
+     * @param board : initial board
+     */
+    @Override public void gameStarted(String board) {
+
+    }
+
+    /**
+     * which player is on action: the player can do an action
+     * <p/>
+     * player name + board
+     *
+     * @param jsonObject
+     */
+    @Override public void onAction(JSONObject jsonObject) {
+
+    }
+
+    /**
+     * a player is dead
+     *
+     * @param name : name of the player
+     */
+    @Override public void aPlayerDead(String name) {
+
+    }
+
+    /**
+     * game Finished
+     *
+     * @param reason : why game is gameFinished
+     */
+    @Override public void gameFinished(String reason) {
+
+    }
+
+    /**
+     * all responses from the server
+     *
+     * @param jsonObject
+     */
+    @Override public void response(JSONObject jsonObject) {
+
     }
 }

@@ -8,34 +8,65 @@ import org.json.JSONObject;
  * Created by Chun Fan & GuoJunjun on April 16, 2015.
  */
 public interface ActionListener {
-
-    //    public void created();
-    //
-    //    /**
-    //     * all the players are ready: list of players with board
-    //     *
-    //     * @param jsonObject
-    //     */
-    //    public void everyOneReady(JSONObject jsonObject);
-    //
-    //    /**
-    //     * a new player joined the game
-    //     *
-    //     * @param jsonObject
-    //     */
-    //    public void newPlayerJoined(JSONObject jsonObject);
-
-    //    /**
-    //     * actions or changes has been made
-    //     *
-    //     * @param jsonObject
-    //     */
-    //    public void statusChanged(JSONObject jsonObject);
+    /**
+     * tell if there is a game at the server
+     *
+     * @param b
+     */
+    public void isThereAgame(boolean b);
 
     /**
-     * responses from the server
+     * a new player joined the game
+     *
+     * @param list
+     */
+    public void newPlayerJoined(String list);
+
+    /**
+     * list of players ready status
+     *
+     * @param list (playerName:boolean)
+     */
+    public void readyStatus(String list);
+
+    /**
+     * report that the game is start now:
+     * <p/>
+     * report only once when the game start.
+     *
+     * @param board : initial board
+     */
+    public void gameStarted(String board);
+
+    /**
+     * which player is on action: the player can do an action
+     * <p/>
+     * player name + board
+     *
+     * @param jsonObject
+     */
+    public void onAction(JSONObject jsonObject);
+
+    /**
+     * a player is dead
+     *
+     * @param name: name of the player
+     */
+    public void aPlayerDead(String name);
+
+    /**
+     * game Finished
+     *
+     * @param reason : why game is gameFinished
+     */
+    public void gameFinished(String reason);
+
+
+    /**
+     * all responses from the server
      *
      * @param jsonObject
      */
     public void response(JSONObject jsonObject);
+
 }

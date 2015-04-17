@@ -1,15 +1,11 @@
 package no.ntnu.tdt4240.a18.battlingships.model;
 
 import android.content.Context;
-import android.util.Log;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Ondra on 10/03/15.
  */
-public class NetworkInterface implements ActionListener {
+public class NetworkInterface {
 
     private static NetworkInterface instance = null;
     private String[] playerlist = {null};
@@ -24,7 +20,7 @@ public class NetworkInterface implements ActionListener {
      */
     private NetworkInterface(Context context) {
         this.context = context;
-        HTTPRequest.addListener(this);
+        //        HTTPRequest.addListener(this);
     }
 
     public static NetworkInterface getInstance(Context context) {
@@ -64,37 +60,43 @@ public class NetworkInterface implements ActionListener {
         HTTPRequest.send(context, "game", "create", "?username=" + username);
     }
 
-    /**
-     * response from the server
-     *
-     * @param jsonObject
-     */
-    public void response(JSONObject jsonObject) {
-        try {
-            Log.i("", "->operation : " + jsonObject.getString("tag"));
-            Log.i("", "->result: " + jsonObject.getString("desc"));
-            Log.i("", "->Players: " + jsonObject.getString("obj"));
 
-//            if (jsonObject.getString("obj").charAt(0) == 'n') {
-//                playerlist =
-//                        jsonObject.getString("obj").substring(11, jsonObject.getString("obj").length() - 1).split(",");
-//            } else {
-                //                playerlist =
-                //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length
-                // () - 1).split(",");
-//            }
-            if (jsonObject.getString("obj").isEmpty()) {
-                //playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1).split(",");
-            }
-            else {
-                playerlist = jsonObject.getString("obj").substring(1,jsonObject.getString("obj").length()-1).split(",");
-            }
-            gameCreated = jsonObject.getString("desc");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.i("", "all response info: " + jsonObject.toString());
-    }
+    //    /**
+    //     * response from the server
+    //     *
+    //     * @param jsonObject
+    //     */
+    //    public void response(JSONObject jsonObject) {
+    //        try {
+    //            Log.i("", "->operation : " + jsonObject.getString("tag"));
+    //            Log.i("", "->result: " + jsonObject.getString("desc"));
+    //            Log.i("", "->Players: " + jsonObject.getString("obj"));
+    //
+    //            //            if (jsonObject.getString("obj").charAt(0) == 'n') {
+    //            //                playerlist =
+    //            //                        jsonObject.getString("obj").substring(11,
+    // jsonObject.getString("obj").length()
+    //            // - 1).split(",");
+    //            //            } else {
+    //            //                playerlist =
+    //            //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length
+    //            // () - 1).split(",");
+    //            //            }
+    //            if (jsonObject.getString("obj").isEmpty()) {
+    //                //playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1)
+    // .split
+    //                // (",");
+    //            } else {
+    //                playerlist =
+    //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length() - 1)
+    // .split(",");
+    //            }
+    //            gameCreated = jsonObject.getString("desc");
+    //        } catch (JSONException e) {
+    //            e.printStackTrace();
+    //        }
+    //        Log.i("", "all response info: " + jsonObject.toString());
+    //    }
 
 
     /**
@@ -116,7 +118,18 @@ public class NetworkInterface implements ActionListener {
     }
 
     /**
+     * a player leave the game
+     *
+     * @param username
+     */
+    public void leave(String username) {
+        HTTPRequest.send(context, "game", "leave", "?username=" + username);
+    }
+
+    /**
      * check who has next action
+     * <p/>
+     * check if there is a game
      *
      * @param username
      */
@@ -170,18 +183,4 @@ public class NetworkInterface implements ActionListener {
     public void infor() {
         HTTPRequest.send(context, "action", "infor");
     }
-
-    //
-    //    /**
-    //     * This method checks overall status of the network connection.
-    //     * <p/>
-    //     * It should make available information if there is connection to the server and some game on the server.
-    //     */
-    //    public void checkStatus() {}
-
-
-    //a heartbeat that runs in a seperate thread
-    //    check(username){
-
-    //    }
 }

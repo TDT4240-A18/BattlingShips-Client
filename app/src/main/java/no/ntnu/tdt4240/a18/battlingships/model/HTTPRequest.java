@@ -59,7 +59,7 @@ public class HTTPRequest {
                     JSONObject job = new JSONObject(response);
                     //                    networkInterface.getInstance(context).response(job);
                     for (ActionListener listener : actionListeners) {
-                        listener.response(job);
+                        responseHandler(listener, job);
                     }
 
                 } catch (JSONException e) {
@@ -75,5 +75,53 @@ public class HTTPRequest {
         });
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+    }
+
+    /**
+     * handler responses: send response to right method
+     *
+     * @param listener
+     * @param job
+     */
+    private static void responseHandler(ActionListener listener, JSONObject job) {
+        listener.response(job);
+        String tag, type, obj, desc;
+        try {
+            tag = job.getString("tag").toString();
+            type = job.getString("type").toString();
+            obj = job.getString("obj").toString();
+            desc = job.getString("desc").toString();
+
+            if (tag.equalsIgnoreCase("finish")) {
+                listener.gameFinished(job.getString("desc"));
+            }
+//            if () listener.newPlayerJoined(); listener.onAction();
+//            listener.readyStatus();
+//            listener.gameStarted();
+//            listener.aPlayerDead();
+
+            if (tag.equalsIgnoreCase("check") && desc.equalsIgnoreCase("no game created")) {
+                listener.isThereAgame(false);
+            } else if (tag.equalsIgnoreCase("check") && desc.equalsIgnoreCase("have game")) {
+                listener.isThereAgame(true);
+            }
+            if (tag.equalsIgnoreCase("finish")) {
+
+            }
+            if (tag.equalsIgnoreCase("finish")) {
+
+            }
+            if (tag.equalsIgnoreCase("finish")) {
+
+            }
+            if (tag.equalsIgnoreCase("finish")) {
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

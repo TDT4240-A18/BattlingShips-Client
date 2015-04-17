@@ -17,6 +17,7 @@ import java.util.Arrays;
 import no.ntnu.tdt4240.a18.battlingships.R;
 import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 import no.ntnu.tdt4240.a18.battlingships.model.ActionListener;
+import no.ntnu.tdt4240.a18.battlingships.model.HTTPRequest;
 
 public class JoinGameView extends Activity implements ActionListener {
     ListView listView;
@@ -26,6 +27,7 @@ public class JoinGameView extends Activity implements ActionListener {
     ArrayList<String> valuelist;
     Button begin;
     Button join;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class JoinGameView extends Activity implements ActionListener {
         aController = (ShipController) getApplicationContext();
         begin = (Button) findViewById(R.id.button5);
         join = (Button) findViewById(R.id.button2);
-        name =(EditText) findViewById(R.id.editText1);
+        name = (EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
         name.setText(aController.getPlayer().toString());
 
@@ -41,19 +43,19 @@ public class JoinGameView extends Activity implements ActionListener {
         String[] values = aController.getNet().getPlayerlist();
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
-        adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,android.R.id.text1,valuelist);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
         listView.setAdapter(adapter);
-        if (!aController.getPlayer().toString().equals("")){
+        if (!aController.getPlayer().toString().equals("")) {
             join.setVisibility(View.INVISIBLE);
         }
+        HTTPRequest.addListener(this);
     }
 
-    public void joinGame(View view){
+    public void joinGame(View view) {
         String username = name.getText().toString();
-        if(null!=username&&username.length()>0){
+        if (null != username && username.length() > 0) {
             aController.getNet().join(username);
-            if (!valuelist.contains(username+" : false")&& !valuelist.contains(username+" : true")) {
+            if (!valuelist.contains(username + " : false") && !valuelist.contains(username + " : true")) {
                 aController.getPlayer().setUsername(username);
                 join.setVisibility(View.INVISIBLE);
             }
@@ -61,7 +63,8 @@ public class JoinGameView extends Activity implements ActionListener {
             //listView.setAdapter(adapter);
         }
     }
-    public void getReady(View view){
+
+    public void getReady(View view) {
         aController.getNet().ready(aController.getPlayer().toString());
     }
 
@@ -79,30 +82,99 @@ public class JoinGameView extends Activity implements ActionListener {
 
     //listeners:
 
-    public void response(JSONObject JsonObj){
 
-    }
-
-    public void newPlayerJoinedGame(String list){
-        String[] values = list.substring(1,list.length()-1).split(",");
+    public void newPlayerJoinedGame(String list) {
+        String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }
 
-    public void readyStatus(String list){
-        String[] values = list.substring(1,list.length()-1).split(",");
+    /**
+     * tell if there is a game at the server
+     *
+     * @param b
+     */
+    @Override public void isThereAgame(boolean b) {
+
+    }
+
+    /**
+     * a new player joined the game
+     *
+     * @param list
+     */
+    @Override public void newPlayerJoined(String list) {
+
+    }
+
+    public void readyStatus(String list) {
+        String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }
 
-    public void gameStarted(String[][] board){
+    /**
+     * report that the game is start now:
+     * <p/>
+     * report only once when the game start.
+     *
+     * @param board : initial board
+     */
+    @Override public void gameStarted(String board) {
+
+    }
+
+    /**
+     * which player is on action: the player can do an action
+     * <p/>
+     * player name + board
+     *
+     * @param jsonObject
+     */
+    @Override public void onAction(JSONObject jsonObject) {
+
+    }
+
+    /**
+     * a player is dead
+     *
+     * @param name : name of the player
+     */
+    @Override public void aPlayerDead(String name) {
+
+    }
+
+    /**
+     * game Finished
+     *
+     * @param reason : why game is gameFinished
+     */
+    @Override public void gameFinished(String reason) {
+
+    }
+
+    /**
+     * all responses from the server
+     *
+     * @param jsonObject
+     */
+    @Override public void response(JSONObject jsonObject) {
+
+    }
+
+    public void gameStarted(String[][] board) {
 
         // TODO:
         //find own position and then create the ship inside player
         //set visibilty for player
         //set board as the board
         //move to MapView
+    }
+
+    @Override protected void onDestroy() {
+        aController.getNet().leave(aController.getPlayer().toString());
+        super.onDestroy();
     }
 }

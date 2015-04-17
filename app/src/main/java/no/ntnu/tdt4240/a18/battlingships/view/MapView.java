@@ -237,6 +237,7 @@ public class MapView extends Activity implements ActionListener {
         //get the name and board out of the jsonObject
         //String[][] board = jsonObject.getString("obj")//to get board
         //String name = jsonObject.getString("desc")//to get name
+        addMessage(name + "! It is your turn");
         if (aController.getPlayer().toString()==name){
             action.setVisibility(View.VISIBLE);
         }
@@ -253,7 +254,7 @@ public class MapView extends Activity implements ActionListener {
     @Override public void aPlayerDead(String name) {
         if (aController.getPlayer().toString() == name){
             aController.getPlayer().iDied();
-            addMessage("Oh noes Seems your ship got sunk");
+            addMessage("Oh noes D: Seems your ship got sunk");
         }
     }
 

@@ -26,6 +26,8 @@ public class MapView extends Activity implements ActionListener {
 
     private ArrayList<String> messages = new ArrayList<>();
     private ShipController aController;
+    private Button action;
+
     private Button x0y0;
     private Button x0y1;
     private Button x0y2;
@@ -56,6 +58,9 @@ public class MapView extends Activity implements ActionListener {
         aController = (ShipController) getApplicationContext();
         visible = aController.getPlayer().getVisibility();
         board = aController.getBoard().getBoard();
+        action = (Button) findViewById(R.id.actionButton);
+        action.setVisibility(View.INVISIBLE);
+
         x0y0 = (Button) findViewById(R.id.button0_0);
         allButtons[0][0] = x0y0;
         x0y1 = (Button) findViewById(R.id.button0_1);
@@ -201,18 +206,14 @@ public class MapView extends Activity implements ActionListener {
      *
      * @param list
      */
-    @Override public void newPlayerJoined(String list) {
-
-    }
+    @Override public void newPlayerJoined(String list) {}
 
     /**
      * list of players ready status
      *
      * @param list (playerName:boolean)
      */
-    @Override public void readyStatus(String list) {
-
-    }
+    @Override public void readyStatus(String list) {}
 
     /**
      * report that the game is start now:
@@ -221,9 +222,7 @@ public class MapView extends Activity implements ActionListener {
      *
      * @param board : initial board
      */
-    @Override public void gameStarted(String board) {
-
-    }
+    @Override public void gameStarted(String board) {}
 
     /**
      * which player is on action: the player can do an action
@@ -233,6 +232,17 @@ public class MapView extends Activity implements ActionListener {
      * @param jsonObject
      */
     @Override public void onAction(JSONObject jsonObject) {
+        String name = "";
+        //TODO
+        //get the name and board out of the jsonObject
+        //String[][] board = jsonObject.getString("obj")//to get board
+        //String name = jsonObject.getString("desc")//to get name
+        addMessage(name + "! It is your turn");
+        if (aController.getPlayer().toString()==name){
+            action.setVisibility(View.VISIBLE);
+        }
+        else {action.setVisibility(View.INVISIBLE);}
+        //set board as new board and update visibility
 
     }
 
@@ -242,7 +252,10 @@ public class MapView extends Activity implements ActionListener {
      * @param name : name of the player
      */
     @Override public void aPlayerDead(String name) {
-
+        if (aController.getPlayer().toString() == name){
+            aController.getPlayer().iDied();
+            addMessage("Oh noes D: Seems your ship got sunk");
+        }
     }
 
     /**

@@ -36,21 +36,18 @@ public class HTTPRequest {
         actionListeners.add(listener);
     }
 
-    public static void send(Context context, String namespace, String action) {
+    public static void send(final Context context, String namespace, String action) {
         send(context, namespace, action, "");
     }
 
     public static void send(final Context context, String namespace, String action, String suffix) {
-
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.74.235:8080/" + namespace + "/" + action + suffix;
-
+        String url = "http://192.168.0.101:8080/" + namespace + "/" + action + suffix;
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                // Display the first 500 characters of the response string.
                 Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
                 try {
 
@@ -83,51 +80,113 @@ public class HTTPRequest {
      */
     private static void responseHandler(ActionListener listener, JSONObject job) {
         listener.response(job);
-        String tag, type, obj, desc;
+        String tag, type, obj, desc, onPlayer, activePlayers, inactivePlayers;
+        int state;
         try {
-            tag = job.getString("tag").toString();
-            type = job.getString("type").toString();
-            obj = job.getString("obj").toString();
-            desc = job.getString("desc").toString();
-
-
-            // is there a game created at the server
-            if ((tag.equalsIgnoreCase("check") || tag.equalsIgnoreCase("infor")) &&
-                    desc.equalsIgnoreCase("no game " + "created")) {
-                listener.isThereAgame(false);
-            } else if (tag.equalsIgnoreCase("check") && desc.equalsIgnoreCase("have game")) {
-                listener.isThereAgame(true);
-            }
-
-            //new player joined the game
-            if (tag.equalsIgnoreCase("")) {
-
-            }
-
-
-            // game finished
-            if (tag.equalsIgnoreCase("finish")) {
-                listener.gameFinished(job.getString("desc"));
-            }
-            //            if () listener.newPlayerJoined(); listener.onAction();
-            //            listener.readyStatus();
-            //            listener.gameStarted();
-            //            listener.aPlayerDead();
-            if (tag.equalsIgnoreCase("finish")) {
-
-            }
-            if (tag.equalsIgnoreCase("finish")) {
-
-            }
-
-            // join result
-            if (tag.equalsIgnoreCase("join")) {
-                listener.joinResult(desc);
-            }
-
+            tag = job.getString("tag");
         } catch (JSONException e) {
             e.printStackTrace();
+            tag = "";
+        }
+        try {
+            type = job.getString("type");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            type = "";
         }
 
+        try {
+            obj = job.getString("obj");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            obj = "";
+        }
+
+        try {
+            desc = job.getString("desc");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            desc = "";
+        }
+        try {
+            onPlayer = job.getString("onplayer");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            onPlayer = "";
+        }
+        try {
+            activePlayers = job.getString("active");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            activePlayers = "";
+        }
+        try {
+            inactivePlayers = job.getString("inactive");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            inactivePlayers = "";
+        }
+
+        try {
+            state = job.getInt("state");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            state = -1;
+        }
+
+
+        // is there a game created at the server
+        if ((tag.equalsIgnoreCase("check") || tag.equalsIgnoreCase("infor")) &&
+                desc.equalsIgnoreCase("no game created")) {
+            listener.isThereAgame(false);
+        } else if ((tag.equalsIgnoreCase("check") || tag.equalsIgnoreCase("infor")) &&
+                desc.equalsIgnoreCase("game created")) {
+            listener.isThereAgame(true);
+        }
+
+        //joined players
+        if (tag.equalsIgnoreCase("infor") && type.equalsIgnoreCase("playerList")) {
+            listener.joinedPlayers(obj);
+        }
+
+        // ready status
+        if (tag.equalsIgnoreCase("infor") && type.equalsIgnoreCase("playerList")) {
+            listener.readyStatus(obj);
+        }
+
+        // game started
+        if (tag.equalsIgnoreCase("infor") && type.equalsIgnoreCase("board") && state == 1) {
+            listener.gameStarted(obj);
+            listener.gameState(state);
+        }
+
+        // on player
+        if (tag.equalsIgnoreCase("infor") && type.equalsIgnoreCase("board") && state >= 1) {
+            //on state
+            listener.gameState(state);
+
+            //on player
+            listener.onPlayer(onPlayer, obj);
+
+            //active player list
+            listener.activePlayerList(activePlayers);
+
+            //inactive player list
+            listener.inactivePlayerList(inactivePlayers);
+        }
+
+        // join result
+        if (tag.equalsIgnoreCase("join")) {
+            listener.joinResult(desc);
+        }
+
+        // game finished
+        if (tag.equalsIgnoreCase("finish")) {
+            try {
+                listener.gameFinished(job.getString("desc"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

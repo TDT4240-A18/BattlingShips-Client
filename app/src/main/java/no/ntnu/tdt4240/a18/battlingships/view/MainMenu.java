@@ -62,11 +62,10 @@ public class MainMenu extends Activity implements ActionListener {
      * Called when the user clicks the "Game View" button
      */
     public void createNewGame(View view) {
-        if (!game){
+        if (!game) {
             Intent intent = new Intent(this, CreateNewGame.class);
             startActivity(intent);
-        }
-        else{
+        } else {
             Intent intent = new Intent(this, JoinGameView.class);
             startActivity(intent);
         }
@@ -84,11 +83,10 @@ public class MainMenu extends Activity implements ActionListener {
      * Called when the user clicks the "JoinView" button
      */
     public void joinGame(View view) {
-        if (!game){
+        if (!game) {
             Intent intent = new Intent(this, CreateNewGame.class);
             startActivity(intent);
-        }
-        else{
+        } else {
             Intent intent = new Intent(this, JoinGameView.class);
             startActivity(intent);
         }
@@ -114,11 +112,11 @@ public class MainMenu extends Activity implements ActionListener {
     }
 
     /**
-     * a new player joined the game
+     * a player list with joined players: before game started
      *
      * @param list
      */
-    @Override public void newPlayerJoined(String list) {
+    @Override public void joinedPlayers(String list) {
 
     }
 
@@ -147,18 +145,47 @@ public class MainMenu extends Activity implements ActionListener {
      * <p/>
      * player name + board
      *
-     * @param jsonObject
+     * @param playerName
+     * @param board
      */
-    @Override public void onAction(JSONObject jsonObject) {
+    @Override public void onPlayer(String playerName, String board) {
 
     }
 
     /**
-     * a player is dead
+     * tell the current game state
+     * <p/>
+     * game state based on sum of players actions
+     * <p/>
+     * first move start with 1
      *
-     * @param name : name of the player
+     * @param state
      */
-    @Override public void aPlayerDead(String name) {}
+    @Override public void gameState(int state) {
+
+    }
+
+    /**
+     * a player list with active players:
+     * <p/>
+     * <li>players not dead</li> <li>players not left the game</li>
+     *
+     * @param activePlayers
+     */
+    @Override public void activePlayerList(String activePlayers) {
+
+    }
+
+    /**
+     * a player list with inactive players:
+     * <p/>
+     * <li>players are dead</li> <li>players that left the game</li>
+     *
+     * @param inactivePlayers
+     */
+    @Override public void inactivePlayerList(String inactivePlayers) {
+
+    }
 
     /**
      * game Finished

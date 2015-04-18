@@ -95,7 +95,7 @@ public class JoinGameView extends Activity implements ActionListener {
      *
      * @param list
      */
-    @Override public void newPlayerJoined(String list) {
+    @Override public void joinedPlayers(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
         valuelist.addAll(Arrays.asList(values));
@@ -139,18 +139,45 @@ public class JoinGameView extends Activity implements ActionListener {
      * <p/>
      * player name + board
      *
-     * @param jsonObject
+     * @param playerName
+     * @param board
      */
-    @Override public void onAction(JSONObject jsonObject) {
+    @Override public void onPlayer(String playerName, String board) {
 
     }
 
     /**
-     * a player is dead
+     * tell the current game state
+     * <p/>
+     * game state based on sum of players actions
+     * <p/>
+     * first move start with 1
      *
-     * @param name : name of the player
+     * @param state
      */
-    @Override public void aPlayerDead(String name) {
+    @Override public void gameState(int state) {
+
+    }
+
+    /**
+     * a player list with active players:
+     * <p/>
+     * <li>players not dead</li> <li>players not left the game</li>
+     *
+     * @param activePlayers
+     */
+    @Override public void activePlayerList(String activePlayers) {
+
+    }
+
+    /**
+     * a player list with inactive players:
+     * <p/>
+     * <li>players are dead</li> <li>players that left the game</li>
+     *
+     * @param inactivePlayers
+     */
+    @Override public void inactivePlayerList(String inactivePlayers) {
 
     }
 

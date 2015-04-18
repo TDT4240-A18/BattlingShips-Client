@@ -19,7 +19,6 @@ public class NetworkInterface {
      */
     private NetworkInterface(Context context) {
         this.context = context;
-        //        HTTPRequest.addListener(this);
     }
 
     public static NetworkInterface getInstance(Context context) {

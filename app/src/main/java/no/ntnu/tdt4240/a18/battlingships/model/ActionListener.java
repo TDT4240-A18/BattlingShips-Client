@@ -20,7 +20,7 @@ public interface ActionListener {
      *
      * @param list
      */
-    public void newPlayerJoined(String list);
+    public void joinedPlayers(String list);
 
     /**
      * list of players ready status
@@ -43,16 +43,40 @@ public interface ActionListener {
      * <p/>
      * player name + board
      *
-     * @param jsonObject
+     * @param playerName
+     * @param board
      */
-    public void onAction(JSONObject jsonObject);
+    public void onPlayer(String playerName, String board);
 
     /**
-     * a player is dead
+     * tell the current game state
+     * <p/>
+     * game state based on sum of players actions
+     * <p/>
+     * first move start with 1
      *
-     * @param name: name of the player
+     * @param state
      */
-    public void aPlayerDead(String name);
+    public void gameState(int state);
+
+    /**
+     * a player list with active players:
+     * <p/>
+     * <li>players not dead</li> <li>players not left the game</li>
+     *
+     * @param activePlayers
+     */
+    public void activePlayerList(String activePlayers);
+
+
+    /**
+     * a player list with inactive players:
+     * <p/>
+     * <li>players are dead</li> <li>players that left the game</li>
+     *
+     * @param inactivePlayers
+     */
+    public void inactivePlayerList(String inactivePlayers);
 
     /**
      * game Finished

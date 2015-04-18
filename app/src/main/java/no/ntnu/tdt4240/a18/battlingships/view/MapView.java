@@ -197,9 +197,7 @@ public class MapView extends Activity implements ActionListener {
      *
      * @param b
      */
-    @Override public void isThereAgame(boolean b) {
-
-    }
+    @Override public void isThereAgame(boolean b) {}
 
     /**
      * a new player joined the game
@@ -278,7 +276,7 @@ public class MapView extends Activity implements ActionListener {
      * @param inactivePlayers
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
-
+        //TODO: check if player is in list, set iDied if that is the case and send a message
     }
 
 
@@ -295,7 +293,7 @@ public class MapView extends Activity implements ActionListener {
      * @param reason : why game is gameFinished
      */
     @Override public void gameFinished(String reason) {
-
+        //TODO go to the endingscreen with a message saying who won
     }
 
     /**

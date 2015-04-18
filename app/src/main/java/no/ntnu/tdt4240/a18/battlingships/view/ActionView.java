@@ -137,6 +137,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
@@ -150,6 +153,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
@@ -163,6 +169,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
@@ -176,6 +185,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else {
             //give player message that move is invalid
@@ -190,6 +202,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
@@ -204,6 +219,9 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
@@ -218,23 +236,29 @@ public class ActionView extends Activity {
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
             }
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
         }
         else{
             //give player message that move is invalid
         }
     }
     public void down(View view){
-        //if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY())){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY())){
             if(move){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
             }
             else if(shoot){
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
             }
-        //}
-        //else{
+            //after choosing a valid move go back to the mapview
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
+        }
+        else{
             //give player message that move is invalid
-        //}
+        }
     }
     public void idle(View view){
         aController.getNet().move(aController.getPlayer().toString(),0,0);

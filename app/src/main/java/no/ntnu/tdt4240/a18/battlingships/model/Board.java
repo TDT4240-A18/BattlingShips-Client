@@ -7,13 +7,25 @@ import java.util.ArrayList;
  */
 public class Board {
 
-    private String[][] board = {{null}};
+    private String[][] board = {{null,null,null,null},{null,"test:3",null,null},{null,null,null,null},{null,null,null,null}};
     private int width = 4;
     private int height = 4;
+    String[] playerList = {null};
+    private boolean gameBegun = false;
 
     public Board() {
     }
 
+    public void setPlayerList(String players){
+        this.playerList = players.substring(1,players.length()-1).split(",");
+    }
+    public void setgameBegun(){
+        gameBegun = true;
+    }
+    public boolean getGamebegun(){return gameBegun;}
+    public String[] getPlayerList(){
+        return playerList;
+    }
     public void setWidth(int width) {
         this.width = width;
     }

@@ -9,7 +9,7 @@ public class Player {
 
     private Ship ship = null;
     private String username = "";
-    private boolean dead;
+    private boolean dead = false;
     private Boolean[][] visibility = {{false,false,false,false},{false,false,false,false},{false,false,false,false},{false,false,false,false}};
 
     public Player(){

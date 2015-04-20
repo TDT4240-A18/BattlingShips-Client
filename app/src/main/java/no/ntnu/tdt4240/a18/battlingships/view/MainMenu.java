@@ -173,7 +173,7 @@ public class MainMenu extends Activity implements ActionListener {
      * @param activePlayers
      */
     @Override public void activePlayerList(String activePlayers) {
-
+        aController.getBoard().setPlayerList(activePlayers);
     }
 
     /**

@@ -109,10 +109,11 @@ public class MapView extends Activity implements ActionListener {
                 if (visible[i][j] == false && aController.getPlayer().getAlive() == false) {
                     allButtons[i][j].setBackgroundColor(Color.GRAY);
                 } else {
-                    if (board[i][j] == null) {
+                    System.out.println(board[i][j]);
+                    if (board[i][j].equals("null")) {
                         allButtons[i][j].setBackgroundColor(Color.BLUE);
                     } else {
-                        if (board[i][j].split(":")[0] == aController.getPlayer().toString()) {
+                        if (board[i][j].equals(aController.getPlayer().toString())) {
                             allButtons[i][j].setBackgroundColor(Color.GREEN);
                             allButtons[i][j].setText(board[i][j]);
                         } else {

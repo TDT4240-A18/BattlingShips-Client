@@ -28,8 +28,6 @@ public class JoinGameView extends Activity implements ActionListener {
     Button begin;
     Button join;
 
-    private String testBoard = "[null,null,null,null];['aa:3',null,null.,null];['bb:3',null,null,null];['cc:3',null,null.,null]]";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,10 +120,23 @@ public class JoinGameView extends Activity implements ActionListener {
      */
     @Override public void gameStarted(String board) {
         // TODO:
-        //String[] test = testBoard.subString(1,testBoard.length()-1).split(";");
+        String[] test = board.substring(1).split(":");
+        String[][] tempBoard = {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}};
+        String[] test3;
+        for(int i=0; i<4; i++){
+            test3 = test[i].substring(1,test[i].length()-2).split(";");
+            for (int j=0; j<4; j++){
+                tempBoard[i][j] = test3[j];
+                if (tempBoard[i][j].equals(aController.getPlayer().toString())){
+                    //find own position and then create the ship inside player
+                    aController.getPlayer().createShip(i,j);
+                }
+            }
+        }
         //set board as the board
-        //find own position and then create the ship inside player
+        aController.getBoard().setBoard(tempBoard);
         //set visibilty for player
+        aController.getPlayer().canSee();
         //move to MapView
         if (aController.getBoard().getGamebegun()){
 

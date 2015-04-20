@@ -9,12 +9,16 @@ import android.os.Bundle;
 
 public class EndingView extends Activity {
 
+    private ShipController aController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_ending_view);
-        final ShipController aController = (ShipController) getApplicationContext();
+        ShipController aController = (ShipController) getApplicationContext();
+        //TODO set victory/loss message of who won
+
     }
 
 }

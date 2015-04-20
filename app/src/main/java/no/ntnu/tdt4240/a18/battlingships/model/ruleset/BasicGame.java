@@ -44,7 +44,7 @@ public class BasicGame implements Gamerules {
         //this sentence only works when all ships only can move and shoot one tile away from their position
         //im sure it can be written in a prettier and more compact way
         //it checks if the spot that is aimed at is within range of the ships shooting range (if the range is 1)
-        if ((ship.getPosX()-posX==1 || ship.getPosX()-posX==-1 || ship.getPosX()==posX) && (ship.getPosY()-posY==1 || ship.getPosY()-posY==-1 || ship.getPosY()==posY)){
+        if ((ship.getPosX()-posX<=1 && ship.getPosX()-posX>=-1) && (ship.getPosY()-posY<=1 && ship.getPosY()-posY>=-1)){
             if (ship.getPosX()-posX == 0 && ship.getPosY()-posY==0){
                 return false;
             }
@@ -61,12 +61,7 @@ public class BasicGame implements Gamerules {
     @Override
     //returns true if the ship collides with another ship (this should be run after the move is confirmed as valid.
     public boolean checkCollide(Ship ship, int posX, int posY) {
-//        if (board.checkOccupied(posX,posY)){
-//            return true;
-//        }
-        //if (board.checkOccupied(posX,posY)){
-        //    return true;
-        //}
+
         return false;
     }
 }

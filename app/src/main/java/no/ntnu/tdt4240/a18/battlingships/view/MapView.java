@@ -45,7 +45,7 @@ public class MapView extends Activity implements ActionListener {
     private Button x3y2;
     private Button x3y3;
 
-    private Button[][] allButtons;
+    private Button[][] allButtons = {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}};
 
     private Boolean[][] visible;
     private String[][] board;
@@ -106,7 +106,7 @@ public class MapView extends Activity implements ActionListener {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 //set fog if player is alive, if not then allow player to see everything
-                if (visible[i][j] == false && aController.getPlayer().getAlive() == true) {
+                if (visible[i][j] == false && aController.getPlayer().getAlive() == false) {
                     allButtons[i][j].setBackgroundColor(Color.GRAY);
                 } else {
                     if (board[i][j] == null) {
@@ -197,9 +197,7 @@ public class MapView extends Activity implements ActionListener {
      *
      * @param b
      */
-    @Override public void isThereAgame(boolean b) {
-
-    }
+    @Override public void isThereAgame(boolean b) {}
 
     /**
      * a new player joined the game
@@ -233,17 +231,17 @@ public class MapView extends Activity implements ActionListener {
      * @param board
      */
     @Override public void onPlayer(String playerName, String board) {
-        //        String name = "";
+                String name = "test";
         //        //TODO
         //        //get the name and board out of the jsonObject
         //        //String[][] board = jsonObject.getString("obj")//to get board
         //        //String name = jsonObject.getString("desc")//to get name
         //        addMessage(name + "! It is your turn");
-        //        if (aController.getPlayer().toString()==name){
-        //            action.setVisibility(View.VISIBLE);
-        //        }
-        //        else {action.setVisibility(View.INVISIBLE);}
-        //        //set board as new board and update visibility
+                if (aController.getPlayer().toString()==name){
+                    action.setVisibility(View.VISIBLE);
+                }
+                else {action.setVisibility(View.INVISIBLE);}
+                //set board as new board and update visibility
     }
 
     /**
@@ -278,7 +276,7 @@ public class MapView extends Activity implements ActionListener {
      * @param inactivePlayers
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
-
+        //TODO: check if player is in list, set iDied if that is the case and send a message
     }
 
 
@@ -295,7 +293,7 @@ public class MapView extends Activity implements ActionListener {
      * @param reason : why game is gameFinished
      */
     @Override public void gameFinished(String reason) {
-
+        //TODO go to the endingscreen with a message saying who won
     }
 
     /**

@@ -28,6 +28,8 @@ public class JoinGameView extends Activity implements ActionListener {
     Button begin;
     Button join;
 
+    private String testBoard = "[null,null,null,null];['aa:3',null,null.,null];['bb:3',null,null,null];['cc:3',null,null.,null]]";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +40,7 @@ public class JoinGameView extends Activity implements ActionListener {
         name = (EditText) findViewById(R.id.editText1);
         listView = (ListView) findViewById(R.id.listView);
         name.setText(aController.getPlayer().toString());
-
-        // TODO: need to find the playerlist somewhere else, maybe directly from the response
-        String[] values = null;// aController.getNet().getPlayerlist();
+        String[] values = aController.getBoard().getPlayerList();
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
@@ -54,10 +54,14 @@ public class JoinGameView extends Activity implements ActionListener {
     public void joinGame(View view) {
         String username = name.getText().toString();
         if (null != username && username.length() > 0) {
-            aController.getNet().join(username);
-            if (!valuelist.contains(username + " : false") && !valuelist.contains(username + " : true")) {
+            //TODO test if this runs when trying to add a taken username
+            if (!valuelist.contains(username + " : false : 3") && !valuelist.contains(username + " : true : 3")) {
+                aController.getNet().join(username);
                 aController.getPlayer().setUsername(username);
                 join.setVisibility(View.INVISIBLE);
+            }
+            else{
+                //TODO return a message that the username is taken.
             }
             //adapter.add(testa);
             //listView.setAdapter(adapter);
@@ -68,18 +72,6 @@ public class JoinGameView extends Activity implements ActionListener {
         aController.getNet().ready(aController.getPlayer().toString());
     }
 
-
-    //TODO: remove the button altogether when it is no longer needed
-    public void begin(View view) {
-        Intent intent = new Intent(this, MapView.class);
-        startActivity(intent);
-        /*
-        String[] values = aController.getNet().getPlayerlist();
-        valuelist.clear();
-        valuelist.addAll(Arrays.asList(values));
-        adapter.notifyDataSetChanged();   */
-    }
-
     //listeners:
 
 
@@ -88,7 +80,13 @@ public class JoinGameView extends Activity implements ActionListener {
      *
      * @param b
      */
-    @Override public void isThereAgame(boolean b) {}
+    @Override public void isThereAgame(boolean b) {
+        //might be redundant to have this check here might wanna test
+        //if(!b){
+        //    Intent intent = new Intent(this, CreateNewGame.class);
+        //    startActivity(intent);
+        //}
+    }
 
     /**
      * a new player joined the game
@@ -124,13 +122,19 @@ public class JoinGameView extends Activity implements ActionListener {
      */
     @Override public void gameStarted(String board) {
         // TODO:
+        //String[] test = testBoard.subString(1,testBoard.length()-1).split(";");
         //set board as the board
         //find own position and then create the ship inside player
         //set visibilty for player
-
         //move to MapView
-        Intent intent = new Intent(this, MapView.class);
-        startActivity(intent);
+        if (aController.getBoard().getGamebegun()){
+
+        }
+        else{
+            aController.getBoard().setgameBegun();
+            Intent intent = new Intent(this, MapView.class);
+            startActivity(intent);
+        }
 
     }
 
@@ -196,7 +200,8 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param result
      */
     @Override public void joinResult(String result) {
-
+        //TODO if result is success then hide Join button maybe and lock the edittext
+        //if fail then send message that it failed and reason
     }
 
     /**
@@ -207,8 +212,9 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void response(JSONObject jsonObject) {
 
     }
-
+    //if the app is exited
     @Override protected void onDestroy() {
+        //player leaves the game
         aController.getNet().leave(aController.getPlayer().toString());
         super.onDestroy();
     }

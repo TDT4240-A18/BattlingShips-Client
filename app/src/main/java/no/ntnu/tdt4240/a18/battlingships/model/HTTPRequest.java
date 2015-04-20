@@ -43,12 +43,12 @@ public class HTTPRequest {
     public static void send(final Context context, String namespace, String action, String suffix) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://192.168.0.101:8080/" + namespace + "/" + action + suffix;
+        String url = "http://78.91.74.110:8080/" + namespace + "/" + action + suffix;
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
+                //                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
                 try {
 
                     JSONObject job = new JSONObject(response);
@@ -165,8 +165,18 @@ public class HTTPRequest {
             //on state
             listener.gameState(state);
 
-            //on player
-            listener.onPlayer(onPlayer, obj);
+            System.out.println("==== " + obj);
+
+            //on player: player name + board
+            if (onPlayer != "") {
+                try {
+                    JSONObject jo = new JSONObject(obj);
+                    System.out.println("-----> " + jo);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                listener.onPlayer(onPlayer, obj);
+            }
 
             //active player list
             listener.activePlayerList(activePlayers);

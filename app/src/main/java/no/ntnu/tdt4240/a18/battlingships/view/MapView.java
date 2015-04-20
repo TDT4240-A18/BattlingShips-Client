@@ -50,6 +50,8 @@ public class MapView extends Activity implements ActionListener {
     private Boolean[][] visible;
     private String[][] board;
 
+    private String currentPlayer ="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +100,6 @@ public class MapView extends Activity implements ActionListener {
         addMessage(this.getString(R.string.game_JoinMessage));
         scaleMapTiles();
         HTTPRequest.addListener(this);
-        //final ShipController aController = (ShipController) getApplicationContext();
     }
 
     //updates the colors for the buttons
@@ -232,13 +233,26 @@ public class MapView extends Activity implements ActionListener {
      * @param board
      */
     @Override public void onPlayer(String playerName, String board) {
-                String name = "test";
-        //        //TODO
-        //        //get the name and board out of the jsonObject
-        //        //String[][] board = jsonObject.getString("obj")//to get board
-        //        //String name = jsonObject.getString("desc")//to get name
-        //        addMessage(name + "! It is your turn");
-                if (aController.getPlayer().toString()==name){
+        //        //TODO set current player
+        if (!currentPlayer.equals(playerName.split(":")[0])) {
+            currentPlayer = playerName.split(":")[0];
+            String[] test = board.substring(1).split(":");
+            String[][] tempBoard = {{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}};
+            String[] test3;
+            for (int i = 0; i < 4; i++) {
+                test3 = test[i].substring(1, test[i].length() - 2).split(";");
+                for (int j = 0; j < 4; j++) {
+                    tempBoard[i][j] = test3[j];
+                    if (tempBoard[i][j].equals(aController.getPlayer().toString())) {
+                        //find own position and then create the ship inside player
+                        aController.getPlayer().createShip(j, i);
+                    }
+                }
+            }
+            addMessage(currentPlayer + "! It is your turn");
+        }
+
+                if (aController.getPlayer().toString().equals(playerName.split(":")[0])){
                     action.setVisibility(View.VISIBLE);
                 }
                 else {action.setVisibility(View.INVISIBLE);}

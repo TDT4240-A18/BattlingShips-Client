@@ -63,7 +63,7 @@ public class MainMenu extends Activity implements ActionListener {
      */
     public void createNewGame(View view) {
         if (!game) {
-        Intent intent = new Intent(this, createNewGame().class);
+        Intent intent = new Intent(this, CreateNewGame.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     } else {

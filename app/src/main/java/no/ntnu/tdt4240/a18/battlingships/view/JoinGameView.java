@@ -53,13 +53,11 @@ public class JoinGameView extends Activity implements ActionListener {
         String username = name.getText().toString();
         if (null != username && username.length() > 0) {
             //TODO test if this runs when trying to add a taken username
-            if (!valuelist.contains(username + ":false:3") && !valuelist.contains(username + ":true:3")) {
-                aController.getNet().join(username);
-                aController.getPlayer().setUsername(username);
-                join.setVisibility(View.INVISIBLE);
-            }
-            else{
-                //TODO return a message that the username is taken.
+            aController.getNet().join(username);
+            aController.getPlayer().setUsername(username);
+        }
+        else{
+                //TODO return a message that the username is empty.
             }
             //adapter.add(testa);
             //listView.setAdapter(adapter);
@@ -213,6 +211,15 @@ public class JoinGameView extends Activity implements ActionListener {
      */
     @Override public void joinResult(String result) {
         //TODO if result is success then hide Join button maybe and lock the edittext
+
+        if (result.equals("success")) {
+            join.setVisibility(View.INVISIBLE);
+        }
+        else {
+            //TODO popup result
+        }
+
+        join.setVisibility(View.INVISIBLE);
         //if fail then send message that it failed and reason
     }
 

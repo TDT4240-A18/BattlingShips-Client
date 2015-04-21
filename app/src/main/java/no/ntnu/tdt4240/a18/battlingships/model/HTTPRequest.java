@@ -44,11 +44,12 @@ public class HTTPRequest {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "http://78.91.73.37:8080/" + namespace + "/" + action + suffix;
+
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
+                //                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
                 try {
 
                     JSONObject job = new JSONObject(response);
@@ -85,52 +86,52 @@ public class HTTPRequest {
         try {
             tag = job.getString("tag");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             tag = "";
         }
         try {
             type = job.getString("type");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             type = "";
         }
 
         try {
             obj = job.getString("obj");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             obj = "";
         }
 
         try {
             desc = job.getString("desc");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             desc = "";
         }
         try {
             onPlayer = job.getString("onplayer");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             onPlayer = "";
         }
         try {
             activePlayers = job.getString("active");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             activePlayers = "";
         }
         try {
             inactivePlayers = job.getString("inactive");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             inactivePlayers = "";
         }
 
         try {
             state = job.getInt("state");
         } catch (JSONException e) {
-            e.printStackTrace();
+            //            e.printStackTrace();
             state = -1;
         }
 
@@ -165,8 +166,10 @@ public class HTTPRequest {
             //on state
             listener.gameState(state);
 
-            //on player
-            listener.onPlayer(onPlayer, obj);
+            //on player: player name + board
+            if (onPlayer != "") {
+                listener.onPlayer(onPlayer, obj);
+            }
 
             //active player list
             listener.activePlayerList(activePlayers);
@@ -185,7 +188,7 @@ public class HTTPRequest {
             try {
                 listener.gameFinished(job.getString("desc"));
             } catch (JSONException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }
     }

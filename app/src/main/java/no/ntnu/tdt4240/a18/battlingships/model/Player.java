@@ -34,7 +34,9 @@ public class Player {
     }
 
     public void canSee() {
-        visibility[ship.getPosY()][ship.getPosX()] = true;
+        if (ship != null) {
+            visibility[ship.getPosY()][ship.getPosX()] = true;
+        }
     }
 
     public Boolean[][] getVisibility() {return visibility;}

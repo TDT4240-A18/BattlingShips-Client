@@ -5,11 +5,13 @@ import no.ntnu.tdt4240.a18.battlingships.controller.ShipController;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 
 public class EndingView extends Activity {
 
     private ShipController aController;
+    TextView winReason;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,8 @@ public class EndingView extends Activity {
 
         setContentView(R.layout.activity_ending_view);
         ShipController aController = (ShipController) getApplicationContext();
-        //TODO set victory/loss message of who won
+        winReason = (TextView) findViewById(R.id.textView);
+        winReason.setText(aController.getBoard().getWinReason());
 
     }
 

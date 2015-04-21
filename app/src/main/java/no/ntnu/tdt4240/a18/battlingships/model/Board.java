@@ -12,12 +12,19 @@ public class Board {
     private int height = 4;
     String[] playerList = {null};
     private boolean gameBegun = false;
+    private String winReason = "";
 
     public Board() {
     }
 
     public void setPlayerList(String players){
         this.playerList = players.substring(1,players.length()-1).split(",");
+    }
+    public void setWinReason(String winner){
+        winReason = winner;
+    }
+    public String getWinReason(){
+        return winReason;
     }
     public void setgameBegun(){
         gameBegun = true;

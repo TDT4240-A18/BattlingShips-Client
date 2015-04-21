@@ -334,6 +334,9 @@ public class MapView extends Activity implements ActionListener {
      */
     @Override public void gameFinished(String reason) {
         //TODO go to the endingscreen with a message saying who won
+        aController.getBoard().setWinReason(reason);
+        Intent intent = new Intent(this, EndingView.class);
+        startActivity(intent);
     }
 
     /**

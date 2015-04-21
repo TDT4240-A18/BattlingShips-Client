@@ -192,11 +192,12 @@ public class MapView extends Activity implements ActionListener {
 
     }
 
+    /*
     @Override protected void onDestroy() {
         aController.getNet().leave(aController.getPlayer().toString());
         super.onDestroy();
     }
-
+    */
     /**
      * tell if there is a game at the server
      *

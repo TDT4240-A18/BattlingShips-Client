@@ -120,7 +120,7 @@ public class MapView extends Activity implements ActionListener {
                     } else {
                         if (board[i][j].equals(aController.getPlayer().toString())) {
                             allButtons[i][j].setBackgroundColor(Color.GREEN);
-                            allButtons[i][j].setText(board[i][j]);
+                            allButtons[i][j].setText(board[i][j]+":"+aController.getPlayer().getLife());
                         } else {
                             allButtons[i][j].setBackgroundColor(Color.RED);
                             allButtons[i][j].setText(board[i][j]);
@@ -288,7 +288,13 @@ public class MapView extends Activity implements ActionListener {
     @Override public void activePlayerList(String activePlayers) {
         if (activePlayers.contains(aController.getPlayer().toString())){
             String[] list = activePlayers.substring(1,activePlayers.length()-1).split(", ");
-
+            for (int d=0;d<list.length;d++){
+                if (list[d].split(":")[0].equals(aController.getPlayer().toString())){
+                    aController.getPlayer().setLife(Integer.parseInt(list[d].split(":")[2]));
+                    break;
+                }
+            }
+            updateBoard();
         }
     }
 

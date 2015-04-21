@@ -34,6 +34,13 @@ public class Player {
         dead = true;
     }
 
+    public void setLife(int l){
+        this.life = l;
+    }
+
+    public int getLife(){
+        return life;
+    }
     public void canSee() {
         if (ship != null) {
             visibility[ship.getPosY()][ship.getPosX()] = true;

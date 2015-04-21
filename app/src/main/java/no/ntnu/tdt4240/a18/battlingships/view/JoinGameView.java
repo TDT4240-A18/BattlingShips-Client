@@ -62,7 +62,7 @@ public class JoinGameView extends Activity implements ActionListener {
             //adapter.add(testa);
             //listView.setAdapter(adapter);
         }
-    }
+
 
     public void getReady(View view) {
         aController.getNet().ready(aController.getPlayer().toString());

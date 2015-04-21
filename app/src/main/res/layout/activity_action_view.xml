@@ -141,7 +141,8 @@
             android:layout_toLeftOf="@+id/downButton"
             android:layout_toStartOf="@+id/downButton"
             android:layout_gravity="center|bottom"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.25"
+            android:onClick="idle" />
 
         <Button
             android:layout_width="0dp"

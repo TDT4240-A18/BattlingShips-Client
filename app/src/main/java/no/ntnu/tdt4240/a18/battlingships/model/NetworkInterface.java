@@ -103,7 +103,7 @@ public class NetworkInterface {
      * @param username
      */
     public void doNothing(String username) {
-        HTTPRequest.send(context, "action", "noNothing", "?username=" + username);
+        HTTPRequest.send(context, "action", "doNothing", "?username=" + username);
     }
 
     /**

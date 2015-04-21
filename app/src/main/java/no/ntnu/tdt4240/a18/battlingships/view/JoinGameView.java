@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -52,16 +53,12 @@ public class JoinGameView extends Activity implements ActionListener {
     public void joinGame(View view) {
         String username = name.getText().toString();
         if (null != username && username.length() > 0) {
-            //TODO test if this runs when trying to add a taken username
             aController.getNet().join(username);
             aController.getPlayer().setUsername(username);
+        } else {
+            Toast.makeText(this, "Please inter a name!", Toast.LENGTH_SHORT).show();
         }
-        else{
-                //TODO return a message that the username is empty.
-            }
-            //adapter.add(testa);
-            //listView.setAdapter(adapter);
-        }
+    }
 
 
     public void getReady(View view) {
@@ -119,15 +116,16 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void gameStarted(String board) {
         // TODO:
         String[] test = board.substring(1).split(":");
-        String[][] tempBoard = {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}};
+        String[][] tempBoard = {{null, null, null, null}, {null, null, null, null}, {null, null, null, null},
+                {null, null, null, null}};
         String[] test3;
-        for(int i=0; i<4; i++){
-            test3 = test[i].substring(1,test[i].length()-2).split(";");
-            for (int j=0; j<4; j++){
+        for (int i = 0; i < 4; i++) {
+            test3 = test[i].substring(1, test[i].length() - 2).split(";");
+            for (int j = 0; j < 4; j++) {
                 tempBoard[i][j] = test3[j];
-                if (tempBoard[i][j].equals(aController.getPlayer().toString())){
+                if (tempBoard[i][j].equals(aController.getPlayer().toString())) {
                     //find own position and then create the ship inside player
-                    aController.getPlayer().createShip(j,i);
+                    aController.getPlayer().createShip(j, i);
                 }
             }
         }
@@ -136,10 +134,9 @@ public class JoinGameView extends Activity implements ActionListener {
         //set visibilty for player
         aController.getPlayer().canSee();
         //move to MapView
-        if (aController.getBoard().getGamebegun()){
+        if (aController.getBoard().getGamebegun()) {
 
-        }
-        else{
+        } else {
             aController.getBoard().setgameBegun();
             Intent intent = new Intent(this, MapView.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -214,9 +211,8 @@ public class JoinGameView extends Activity implements ActionListener {
 
         if (result.equals("success")) {
             join.setVisibility(View.INVISIBLE);
-        }
-        else {
-            //TODO popup result
+        } else {
+            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         }
 
         join.setVisibility(View.INVISIBLE);
@@ -231,6 +227,7 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void response(JSONObject jsonObject) {
 
     }
+
     //if the app is exited
     @Override protected void onDestroy() {
         //player leaves the game

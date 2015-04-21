@@ -3,6 +3,7 @@ package no.ntnu.tdt4240.a18.battlingships.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -56,7 +57,9 @@ public class JoinGameView extends Activity implements ActionListener {
             aController.getNet().join(username);
             aController.getPlayer().setUsername(username);
         } else {
-            Toast.makeText(this, "Please inter a name!", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(this, "Please enter a name!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
         }
         //adapter.add(testa);
         //listView.setAdapter(adapter);
@@ -214,7 +217,9 @@ public class JoinGameView extends Activity implements ActionListener {
         if (result.equals("success")) {
             join.setVisibility(View.INVISIBLE);
         } else {
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(this, result, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
         }
 
         join.setVisibility(View.INVISIBLE);

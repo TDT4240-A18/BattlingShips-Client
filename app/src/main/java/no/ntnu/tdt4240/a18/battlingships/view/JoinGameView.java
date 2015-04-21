@@ -41,6 +41,7 @@ public class JoinGameView extends Activity implements ActionListener {
         listView = (ListView) findViewById(R.id.listView);
         name.setText(aController.getPlayer().toString());
         String[] values = aController.getBoard().getPlayerList();
+        System.out.println("doyoucrash");
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
@@ -117,7 +118,6 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param board : initial board
      */
     @Override public void gameStarted(String board) {
-        // TODO:
         String[] test = board.substring(1).split(":");
         String[][] tempBoard = {{null, null, null, null}, {null, null, null, null}, {null, null, null, null},
                 {null, null, null, null}};
@@ -136,6 +136,9 @@ public class JoinGameView extends Activity implements ActionListener {
         aController.getBoard().setBoard(tempBoard);
         //set visibilty for player
         aController.getPlayer().canSee();
+        if (aController.getPlayer().getShip()==null){
+            aController.getPlayer().iDied();
+        }
         //move to MapView
         if (aController.getBoard().getGamebegun()) {
 
@@ -219,8 +222,6 @@ public class JoinGameView extends Activity implements ActionListener {
             toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
         }
-
-        join.setVisibility(View.INVISIBLE);
         //if fail then send message that it failed and reason
     }
 

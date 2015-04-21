@@ -139,6 +139,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -155,6 +156,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -171,6 +173,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -187,6 +190,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else {
@@ -204,6 +208,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -221,6 +226,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -238,6 +244,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -254,6 +261,7 @@ public class ActionView extends Activity {
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
         else{
@@ -261,7 +269,10 @@ public class ActionView extends Activity {
         }
     }
     public void idle(View view){
-        aController.getNet().move(aController.getPlayer().toString(),0,0);
+        aController.getNet().doNothing(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY());
+        Intent intent = new Intent(this, MapView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
     }
 
 

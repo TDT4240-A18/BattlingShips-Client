@@ -129,7 +129,7 @@ public class JoinGameView extends Activity implements ActionListener {
                 tempBoard[i][j] = test3[j];
                 if (tempBoard[i][j].equals(aController.getPlayer().toString())){
                     //find own position and then create the ship inside player
-                    aController.getPlayer().createShip(i,j);
+                    aController.getPlayer().createShip(j,i);
                 }
             }
         }

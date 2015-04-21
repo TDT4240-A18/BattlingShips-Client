@@ -19,7 +19,7 @@ public class EndingView extends Activity {
 
         setContentView(R.layout.activity_ending_view);
         ShipController aController = (ShipController) getApplicationContext();
-        winReason = (TextView) findViewById(R.id.textView);
+        winReason = (TextView) findViewById(R.id.fullscreen_content);
         winReason.setText(aController.getBoard().getWinReason());
 
     }

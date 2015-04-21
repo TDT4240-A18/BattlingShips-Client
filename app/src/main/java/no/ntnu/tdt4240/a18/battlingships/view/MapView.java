@@ -27,7 +27,7 @@ public class MapView extends Activity implements ActionListener {
     private ArrayList<String> messages = new ArrayList<>();
     private ShipController aController;
     private Button action;
-    private int deadPlayers=0;
+    private String deadPlayers = "[]";
 
     private Button x0y0;
     private Button x0y1;
@@ -113,7 +113,6 @@ public class MapView extends Activity implements ActionListener {
                 if (visible[i][j] == false && aController.getPlayer().getDead() == false) {
                     allButtons[i][j].setBackgroundColor(Color.GRAY);
                 } else {
-                    System.out.println(board[i][j]);
                     if (board[i][j].equals("null")) {
                         allButtons[i][j].setBackgroundColor(Color.BLUE);
                         allButtons[i][j].setText("");
@@ -140,6 +139,7 @@ public class MapView extends Activity implements ActionListener {
 
     public void goToAction(View view) {
         Intent intent = new Intent(this, ActionView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
@@ -307,9 +307,10 @@ public class MapView extends Activity implements ActionListener {
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
         //TODO: check if player is in list, set iDied if that is the case and send a message
-        if (deadPlayers != inactivePlayers.substring(1, inactivePlayers.length()-1).split(",").length){
+        if (!deadPlayers.equals(inactivePlayers) && !inactivePlayers.equals("[]")){
+            deadPlayers = inactivePlayers;
             String[] players = inactivePlayers.substring(1, inactivePlayers.length() - 1).split(",");
-            if (aController.getPlayer().getDead() == false) {
+            if (!aController.getPlayer().getDead()) {
                 boolean iDead = false;
                 for (int b = 0; b < players.length; b++) {
                     if (players[b].split(":")[0].equals(aController.getPlayer().toString())) {

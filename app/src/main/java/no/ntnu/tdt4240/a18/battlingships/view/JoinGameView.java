@@ -144,7 +144,8 @@ public class JoinGameView extends Activity implements ActionListener {
         } else {
             aController.getBoard().setgameBegun();
             Intent intent = new Intent(this, MapView.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            this.onPause();
             startActivity(intent);
         }
 

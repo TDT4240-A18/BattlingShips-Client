@@ -18,7 +18,7 @@ import no.ntnu.tdt4240.a18.battlingships.model.PerformInBackground;
 public class MainMenu extends Activity implements ActionListener {
 
     private ShipController aController;
-    private boolean game;
+    private boolean game= true;
     private boolean gamebegun;
     //Timer t = new Timer();
 
@@ -218,4 +218,12 @@ public class MainMenu extends Activity implements ActionListener {
     @Override public void response(JSONObject jsonObject) {
 
     }
+
+    //if the app is exited
+    @Override protected void onDestroy() {
+        //player leaves the game
+        aController.getNet().leave(aController.getPlayer().toString());
+        super.onDestroy();
+    }
+
 }

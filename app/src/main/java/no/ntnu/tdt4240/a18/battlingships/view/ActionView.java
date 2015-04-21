@@ -331,9 +331,7 @@ public class ActionView extends Activity {
 
     public void idle(View view) {
         aController.getNet().doNothing(aController.getPlayer().toString());
-        Intent intent = new Intent(this, MapView.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(intent);
+        this.finish();
     }
 
 

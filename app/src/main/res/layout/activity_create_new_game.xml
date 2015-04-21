@@ -48,33 +48,6 @@
             android:layout_below="@+id/textView"
             android:layout_alignLeft="@+id/textView" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/createGameForm_playerCnt"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/username"
-            android:layout_alignLeft="@+id/username"
-            android:layout_alignStart="@+id/username"
-            android:layout_marginTop="20dp"
-            android:width="200dp" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/playerCnt"
-            android:background="#fff"
-            android:enabled="true"
-            android:padding="10dp"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/createGameForm_playerCnt_hint"
-            android:layout_alignLeft="@+id/textView2"
-            android:width="200dp" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

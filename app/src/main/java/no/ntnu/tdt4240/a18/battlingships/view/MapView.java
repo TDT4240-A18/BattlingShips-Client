@@ -27,7 +27,8 @@ public class MapView extends Activity implements ActionListener {
     private ArrayList<String> messages = new ArrayList<>();
     private ShipController aController;
     private Button action;
-    private String deadPlayers = "[]";
+    private Button leave;
+
 
     private Button x0y0;
     private Button x0y1;
@@ -63,6 +64,10 @@ public class MapView extends Activity implements ActionListener {
         board = aController.getBoard().getBoard();
         action = (Button) findViewById(R.id.actionButton);
         action.setVisibility(View.INVISIBLE);
+        leave = (Button) findViewById(R.id.game_btn0);
+        if (aController.getPlayer().toString()==""){
+            leave.setVisibility(View.INVISIBLE);
+        }
 
         x0y0 = (Button) findViewById(R.id.button0_0);
         allButtons[0][0] = x0y0;
@@ -98,7 +103,6 @@ public class MapView extends Activity implements ActionListener {
         allButtons[3][3] = (x3y3);
 
         updateBoard();
-        addMessage(this.getString(R.string.game_JoinMessage));
         scaleMapTiles();
         HTTPRequest.addListener(this);
     }
@@ -134,7 +138,8 @@ public class MapView extends Activity implements ActionListener {
      * Called when the user clicks the "Ending View" button
      */
     public void endGame(View view) {
-        System.out.println(aController.getPlayer().getShip().getPosX() + " , " + aController.getPlayer().getShip().getPosY());
+        aController.getNet().leave(aController.getPlayer().toString());
+        addMessage("You have left the battlefield");
     }
 
     public void goToAction(View view) {
@@ -306,9 +311,8 @@ public class MapView extends Activity implements ActionListener {
      * @param inactivePlayers
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
-        //TODO: check if player is in list, set iDied if that is the case and send a message
-        if (!deadPlayers.equals(inactivePlayers) && !inactivePlayers.equals("[]")){
-            deadPlayers = inactivePlayers;
+        if (!aController.getBoard().getDeadPlayers().equals(inactivePlayers) && !inactivePlayers.equals("[]")){
+            aController.getBoard().setDeadPlayers(inactivePlayers);
             String[] players = inactivePlayers.substring(1, inactivePlayers.length() - 1).split(",");
             if (!aController.getPlayer().getDead()) {
                 boolean iDead = false;
@@ -317,6 +321,8 @@ public class MapView extends Activity implements ActionListener {
                         iDead = true;
                         aController.getPlayer().iDied();
                         addMessage("Too bad "+ aController.getPlayer().toString() + ", you have died");
+                        updateBoard();
+                        leave.setVisibility(View.INVISIBLE);
                         break;
                     }
                 }

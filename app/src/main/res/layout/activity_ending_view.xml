@@ -11,4 +11,12 @@
         android:textStyle="bold" android:textSize="50sp" android:gravity="center"
         android:text="@string/end_msg" />
 
+    <Button
+        android:layout_width="122dp"
+        android:layout_height="96dp"
+        android:text="Exit"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal|bottom"
+        android:onClick="end" />
+
 </FrameLayout>

@@ -23,6 +23,7 @@ public class Board {
     private int width = 4;
     private int height = 4;
     String[] playerList = {null};
+    private String deadPlayers = "[]";
     private boolean gameBegun = false;
     private String winReason = "test";
 
@@ -39,6 +40,14 @@ public class Board {
     public void setgameBegun(){
 
         gameBegun = true;
+    }
+
+    public void setDeadPlayers(String players){
+        this.deadPlayers = players;
+    }
+
+    public String getDeadPlayers(){
+        return deadPlayers;
     }
 
     public boolean getGamebegun() {return gameBegun;}

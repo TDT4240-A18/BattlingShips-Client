@@ -68,6 +68,14 @@ public class JoinGameView extends Activity implements ActionListener {
         aController.getNet().ready(aController.getPlayer().toString());
     }
 
+    public void leave(View view) {
+        if (join.getVisibility()==View.INVISIBLE){
+            aController.getNet().leave(aController.getPlayer().toString());
+            aController.getPlayer().setUsername("");
+            join.setVisibility(View.VISIBLE);
+        }
+    }
+
     //listeners:
 
 
@@ -139,13 +147,10 @@ public class JoinGameView extends Activity implements ActionListener {
             aController.getPlayer().iDied();
         }
         //move to MapView
-        if (aController.getBoard().getGamebegun()) {
-
-        } else {
+        if (!aController.getBoard().getGamebegun()) {
             aController.getBoard().setgameBegun();
             Intent intent = new Intent(this, MapView.class);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            this.onPause();
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
 

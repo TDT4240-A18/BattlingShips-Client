@@ -286,7 +286,10 @@ public class MapView extends Activity implements ActionListener {
      * @param activePlayers
      */
     @Override public void activePlayerList(String activePlayers) {
+        if (activePlayers.contains(aController.getPlayer().toString())){
+            String[] list = activePlayers.substring(1,activePlayers.length()-1).split(", ");
 
+        }
     }
 
     /**

@@ -135,7 +135,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1);
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -152,7 +152,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1);
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -169,7 +169,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX());
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -186,7 +186,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1);
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -204,7 +204,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX());
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -222,7 +222,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1);
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -240,7 +240,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1);
+                aController.getNet().shoot(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -257,7 +257,7 @@ public class ActionView extends Activity {
                 aController.getNet().move(aController.getPlayer().toString(),1+aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),1+aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX());
+                aController.getNet().shoot(aController.getPlayer().toString(),1+aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);

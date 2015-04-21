@@ -61,10 +61,8 @@ public class JoinGameView extends Activity implements ActionListener {
             toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
         }
-        //adapter.add(testa);
-        //listView.setAdapter(adapter);
-
     }
+
 
     public void getReady(View view) {
         aController.getNet().ready(aController.getPlayer().toString());

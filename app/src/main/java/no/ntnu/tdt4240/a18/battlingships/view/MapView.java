@@ -237,7 +237,6 @@ public class MapView extends Activity implements ActionListener {
      * @param board
      */
     @Override public void onPlayer(String playerName, String board) {
-        //        //TODO set current player
         if (!currentPlayer.equals(playerName.split(":")[0])) {
             currentPlayer = playerName.split(":")[0];
             String[] test = board.substring(1).split(":");
@@ -333,7 +332,6 @@ public class MapView extends Activity implements ActionListener {
      * @param reason : why game is gameFinished
      */
     @Override public void gameFinished(String reason) {
-        //TODO go to the endingscreen with a message saying who won
         aController.getBoard().setWinReason(reason);
         Intent intent = new Intent(this, EndingView.class);
         startActivity(intent);

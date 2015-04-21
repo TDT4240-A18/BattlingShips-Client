@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 
 /**
+ * a Static Class
+ * <p/>
  * This file is part of BattlingShips-Client
  * <p/>
  * Created by ChunFan & GuoJunjun on April 14, 2015.
@@ -49,7 +51,7 @@ public class HTTPRequest {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
+                Log.i(this.getClass().getSimpleName(), " ----: Response is: " + response);
                 try {
 
                     JSONObject job = new JSONObject(response);

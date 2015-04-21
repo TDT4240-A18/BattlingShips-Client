@@ -3,6 +3,8 @@ package no.ntnu.tdt4240.a18.battlingships.model;
 import android.content.Context;
 
 /**
+ * singleton pattern
+ * <p/>
  * This file is part of BattlingShips-Client
  * <p/>
  * Created Chun Fan & GuoJunjun <junjunguo.com> on April 16, 2015.

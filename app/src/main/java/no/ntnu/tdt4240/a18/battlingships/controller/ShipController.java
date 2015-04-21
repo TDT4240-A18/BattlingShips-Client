@@ -14,8 +14,8 @@ import no.ntnu.tdt4240.a18.battlingships.model.ruleset.BasicGame;
  */
 public class ShipController extends Application {
 
-    private Player player = new Player();
-    private Board board = new Board();
+    private Player player = Player.getInstance();
+    private Board board = Board.getInstance();
     private Gamerules rules = new BasicGame(board);
     private Game game = new Game(rules, board);
     private NetworkInterface net = NetworkInterface.getInstance(this);//new NetworkInterface();

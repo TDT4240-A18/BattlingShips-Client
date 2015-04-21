@@ -40,6 +40,7 @@ public class CreateNewGame extends Activity {
         aController.getNet().create(username);
         aController.getPlayer().setUsername(username);
         Intent intent = new Intent(this, JoinGameView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 

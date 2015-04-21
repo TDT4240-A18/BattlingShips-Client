@@ -64,9 +64,11 @@ public class MainMenu extends Activity implements ActionListener {
     public void createNewGame(View view) {
         if (!game) {
             Intent intent = new Intent(this, CreateNewGame.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, JoinGameView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
     }
@@ -76,6 +78,7 @@ public class MainMenu extends Activity implements ActionListener {
      */
     public void showCredits(View view) {
         Intent intent = new Intent(this, CreditView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
@@ -85,9 +88,11 @@ public class MainMenu extends Activity implements ActionListener {
     public void joinGame(View view) {
         if (!game) {
             Intent intent = new Intent(this, CreateNewGame.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, JoinGameView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
     }

@@ -27,6 +27,7 @@ public class MapView extends Activity implements ActionListener {
     private ArrayList<String> messages = new ArrayList<>();
     private ShipController aController;
     private Button action;
+    private int deadPlayers=0;
 
     private Button x0y0;
     private Button x0y1;
@@ -104,15 +105,18 @@ public class MapView extends Activity implements ActionListener {
 
     //updates the colors for the buttons
     public void updateBoard() {
+        board = aController.getBoard().getBoard();
+        visible = aController.getPlayer().getVisibility();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 //set fog if player is alive, if not then allow player to see everything
-                if (visible[i][j] == false && aController.getPlayer().getAlive() == false) {
+                if (visible[i][j] == false && aController.getPlayer().getDead() == false) {
                     allButtons[i][j].setBackgroundColor(Color.GRAY);
                 } else {
                     System.out.println(board[i][j]);
                     if (board[i][j].equals("null")) {
                         allButtons[i][j].setBackgroundColor(Color.BLUE);
+                        allButtons[i][j].setText("");
                     } else {
                         if (board[i][j].equals(aController.getPlayer().toString())) {
                             allButtons[i][j].setBackgroundColor(Color.GREEN);
@@ -131,8 +135,7 @@ public class MapView extends Activity implements ActionListener {
      * Called when the user clicks the "Ending View" button
      */
     public void endGame(View view) {
-        Intent intent = new Intent(this, EndingView.class);
-        startActivity(intent);
+        System.out.println(aController.getPlayer().getShip().getPosX() + " , " + aController.getPlayer().getShip().getPosY());
     }
 
     public void goToAction(View view) {
@@ -249,7 +252,10 @@ public class MapView extends Activity implements ActionListener {
                     }
                 }
             }
+            aController.getBoard().setBoard(tempBoard);
             addMessage(currentPlayer + "! It is your turn");
+            aController.getPlayer().canSee();
+            updateBoard();
         }
 
                 if (aController.getPlayer().toString().equals(playerName.split(":")[0])){
@@ -292,6 +298,24 @@ public class MapView extends Activity implements ActionListener {
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
         //TODO: check if player is in list, set iDied if that is the case and send a message
+        if (deadPlayers == inactivePlayers.substring(1, inactivePlayers.length()-1).split(",").length){
+            String[] players = inactivePlayers.substring(1, inactivePlayers.length() - 1).split(",");
+            if (aController.getPlayer().getDead() == false) {
+                boolean iDead = false;
+                for (int b = 0; b < players.length; b++) {
+                    if (players[b].split(":")[0].equals(aController.getPlayer().toString())) {
+                        iDead = true;
+                        aController.getPlayer().iDied();
+                        addMessage("Too bad "+ aController.getPlayer().toString() + ", you have died");
+                        break;
+                    }
+                }
+                if (!iDead){
+                    addMessage("Oh my, " + players[players.length-1].split(":")[0] + " has died");
+                }
+            }
+            else{ addMessage("Oh my, " + players[players.length-1].split(":")[0] + " has died");}
+        }
     }
 
 

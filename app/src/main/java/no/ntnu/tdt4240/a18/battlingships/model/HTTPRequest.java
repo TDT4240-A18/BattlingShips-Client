@@ -43,7 +43,7 @@ public class HTTPRequest {
     public static void send(final Context context, String namespace, String action, String suffix) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.74.110:8080/" + namespace + "/" + action + suffix;
+        String url = "http://78.91.73.37:8080/" + namespace + "/" + action + suffix;
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override

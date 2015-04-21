@@ -23,7 +23,7 @@ public class Player {
     }
     public Boolean[][] getVisibility(){return visibility;}
 
-    public boolean getAlive(){
+    public boolean getDead(){
         return dead;
     }
     public void setUsername(String name){

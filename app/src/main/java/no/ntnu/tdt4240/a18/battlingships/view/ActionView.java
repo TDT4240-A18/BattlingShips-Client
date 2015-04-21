@@ -130,12 +130,12 @@ public class ActionView extends Activity {
     //Doing actions
     //for these to work we need to set a value to the X and Y of the ship
     public void upLeft(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -147,12 +147,12 @@ public class ActionView extends Activity {
         }
     }
     public void upRight(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -164,12 +164,12 @@ public class ActionView extends Activity {
         }
     }
     public void up(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY()-1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX()-1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -181,12 +181,12 @@ public class ActionView extends Activity {
         }
     }
     public void left(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY())){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -199,12 +199,12 @@ public class ActionView extends Activity {
     }
 
     public void right(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY())){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -217,12 +217,12 @@ public class ActionView extends Activity {
 
     }
     public void downLeft(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()-1,aController.getPlayer().getShip().getPosY()+1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()-1,aController.getPlayer().getShip().getPosX()+1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -235,12 +235,12 @@ public class ActionView extends Activity {
     }
 
     public void downRight(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1)){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1)){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1);
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX()+1,aController.getPlayer().getShip().getPosY()+1);
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY()+1,aController.getPlayer().getShip().getPosX()+1);
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -252,12 +252,12 @@ public class ActionView extends Activity {
         }
     }
     public void down(View view){
-        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY())){
+        if (aController.getRules().checkMove(aController.getPlayer().getShip(), aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX())){
             if(move){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX());
             }
             else if(shoot){
-                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),1+aController.getPlayer().getShip().getPosY());
+                aController.getNet().move(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),1+aController.getPlayer().getShip().getPosX());
             }
             //after choosing a valid move go back to the mapview
             Intent intent = new Intent(this, MapView.class);
@@ -269,7 +269,7 @@ public class ActionView extends Activity {
         }
     }
     public void idle(View view){
-        aController.getNet().doNothing(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosX(),aController.getPlayer().getShip().getPosY());
+        aController.getNet().doNothing(aController.getPlayer().toString(),aController.getPlayer().getShip().getPosY(),aController.getPlayer().getShip().getPosX());
         Intent intent = new Intent(this, MapView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);

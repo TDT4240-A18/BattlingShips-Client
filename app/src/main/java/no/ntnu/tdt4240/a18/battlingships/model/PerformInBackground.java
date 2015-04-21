@@ -16,7 +16,6 @@ public class PerformInBackground extends AsyncTask {
     private Context context;
     private NetworkInterface networkInterface;
 
-
     private PerformInBackground(Context context) {
         this.context = context;
         networkInterface = NetworkInterface.getInstance(context);
@@ -59,6 +58,6 @@ public class PerformInBackground extends AsyncTask {
                 }
             }
         };
-        timer.schedule(doAsynchronousTask, 1000, 1000);
+        timer.schedule(doAsynchronousTask, 2000, 1000);
     }
 }

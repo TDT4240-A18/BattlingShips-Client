@@ -37,45 +37,6 @@ public class NetworkInterface {
         HTTPRequest.send(context, "game", "create", "?username=" + username);
     }
 
-
-    //    /**
-    //     * response from the server
-    //     *
-    //     * @param jsonObject
-    //     */
-    //    public void response(JSONObject jsonObject) {
-    //        try {
-    //            Log.i("", "->operation : " + jsonObject.getString("tag"));
-    //            Log.i("", "->result: " + jsonObject.getString("desc"));
-    //            Log.i("", "->Players: " + jsonObject.getString("obj"));
-    //
-    //            //            if (jsonObject.getString("obj").charAt(0) == 'n') {
-    //            //                playerlist =
-    //            //                        jsonObject.getString("obj").substring(11,
-    // jsonObject.getString("obj").length()
-    //            // - 1).split(",");
-    //            //            } else {
-    //            //                playerlist =
-    //            //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length
-    //            // () - 1).split(",");
-    //            //            }
-    //            if (jsonObject.getString("obj").isEmpty()) {
-    //                //playerlist = jsonObject.getString("obj").substring(11,jsonObject.getString("obj").length()-1)
-    // .split
-    //                // (",");
-    //            } else {
-    //                playerlist =
-    //                        jsonObject.getString("obj").substring(1, jsonObject.getString("obj").length() - 1)
-    // .split(",");
-    //            }
-    //            gameCreated = jsonObject.getString("desc");
-    //        } catch (JSONException e) {
-    //            e.printStackTrace();
-    //        }
-    //        Log.i("", "all response info: " + jsonObject.toString());
-    //    }
-
-
     /**
      * tell server the user is ready
      *
@@ -140,11 +101,9 @@ public class NetworkInterface {
      * do nothing: pass the action to next player
      *
      * @param username
-     * @param x
-     * @param y
      */
-    public void doNothing(String username, int x, int y) {
-        HTTPRequest.send(context, "action", "noNothing", "?username=" + username + "&x=" + x + "&y=" + y);
+    public void doNothing(String username) {
+        HTTPRequest.send(context, "action", "noNothing", "?username=" + username);
     }
 
     /**

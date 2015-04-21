@@ -42,6 +42,7 @@ public class JoinGameView extends Activity implements ActionListener {
         name.setText(aController.getPlayer().toString());
         String[] values = aController.getBoard().getPlayerList();
         valuelist = new ArrayList<String>();
+        valuelist.add("Players");
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
         listView.setAdapter(adapter);
@@ -100,6 +101,7 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void joinedPlayers(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
+        valuelist.add("Players");
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }
@@ -113,6 +115,7 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void readyStatus(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
+        valuelist.add("Players");
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }

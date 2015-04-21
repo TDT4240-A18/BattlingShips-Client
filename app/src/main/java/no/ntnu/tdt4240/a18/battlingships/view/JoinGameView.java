@@ -66,7 +66,9 @@ public class JoinGameView extends Activity implements ActionListener {
 
 
     public void getReady(View view) {
-        aController.getNet().ready(aController.getPlayer().toString());
+        if (join.getVisibility()==View.INVISIBLE){
+            aController.getNet().ready(aController.getPlayer().toString());
+        }
     }
 
     public void leave(View view) {

@@ -307,7 +307,7 @@ public class MapView extends Activity implements ActionListener {
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
         //TODO: check if player is in list, set iDied if that is the case and send a message
-        if (deadPlayers == inactivePlayers.substring(1, inactivePlayers.length()-1).split(",").length){
+        if (deadPlayers != inactivePlayers.substring(1, inactivePlayers.length()-1).split(",").length){
             String[] players = inactivePlayers.substring(1, inactivePlayers.length() - 1).split(",");
             if (aController.getPlayer().getDead() == false) {
                 boolean iDead = false;

@@ -41,7 +41,6 @@ public class JoinGameView extends Activity implements ActionListener {
         listView = (ListView) findViewById(R.id.listView);
         name.setText(aController.getPlayer().toString());
         String[] values = aController.getBoard().getPlayerList();
-        System.out.println("doyoucrash");
         valuelist = new ArrayList<String>();
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);

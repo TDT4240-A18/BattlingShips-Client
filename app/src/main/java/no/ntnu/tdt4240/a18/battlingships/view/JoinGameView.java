@@ -120,7 +120,7 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void readyStatus(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
-        valuelist.add("Players");
+        valuelist.add("Players:Status");
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }

@@ -22,7 +22,7 @@ public class Board {
             {null, null, null, null}};
     private int width = 4;
     private int height = 4;
-    String[] playerList = {null};
+    String[] playerList = {""};
     private String deadPlayers = "[]";
     private boolean gameBegun = false;
     private String winReason = "test";

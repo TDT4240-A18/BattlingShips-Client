@@ -47,12 +47,13 @@ public class MapView extends Activity implements ActionListener {
     private Button x3y2;
     private Button x3y3;
 
-    private Button[][] allButtons = {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}};
+    private Button[][] allButtons =
+            {{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}};
 
     private Boolean[][] visible;
     private String[][] board;
 
-    private String currentPlayer ="";
+    private String currentPlayer = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class MapView extends Activity implements ActionListener {
         action = (Button) findViewById(R.id.actionButton);
         action.setVisibility(View.INVISIBLE);
         leave = (Button) findViewById(R.id.game_btn0);
-        if (aController.getPlayer().toString()==""){
+        if (aController.getPlayer().toString() == "") {
             leave.setVisibility(View.INVISIBLE);
         }
 
@@ -123,7 +124,7 @@ public class MapView extends Activity implements ActionListener {
                     } else {
                         if (board[i][j].equals(aController.getPlayer().toString())) {
                             allButtons[i][j].setBackgroundColor(Color.GREEN);
-                            allButtons[i][j].setText(board[i][j]+":"+aController.getPlayer().getLife());
+                            allButtons[i][j].setText(board[i][j] + ":" + aController.getPlayer().getLife());
                         } else {
                             allButtons[i][j].setBackgroundColor(Color.RED);
                             allButtons[i][j].setText(board[i][j]);
@@ -203,6 +204,7 @@ public class MapView extends Activity implements ActionListener {
         super.onDestroy();
     }
     */
+
     /**
      * tell if there is a game at the server
      *
@@ -245,7 +247,8 @@ public class MapView extends Activity implements ActionListener {
         if (!currentPlayer.equals(playerName.split(":")[0])) {
             currentPlayer = playerName.split(":")[0];
             String[] test = board.substring(1).split(":");
-            String[][] tempBoard = {{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}};
+            String[][] tempBoard = {{null, null, null, null}, {null, null, null, null}, {null, null, null, null},
+                    {null, null, null, null}};
             String[] test3;
             for (int i = 0; i < 4; i++) {
                 test3 = test[i].substring(1, test[i].length() - 2).split(";");
@@ -263,11 +266,10 @@ public class MapView extends Activity implements ActionListener {
             updateBoard();
         }
 
-                if (aController.getPlayer().toString().equals(playerName.split(":")[0])){
-                    action.setVisibility(View.VISIBLE);
-                }
-                else {action.setVisibility(View.INVISIBLE);}
-                //set board as new board and update visibility
+        if (aController.getPlayer().toString().equals(playerName.split(":")[0])) {
+            action.setVisibility(View.VISIBLE);
+        } else {action.setVisibility(View.INVISIBLE);}
+        //set board as new board and update visibility
     }
 
     /**
@@ -291,10 +293,10 @@ public class MapView extends Activity implements ActionListener {
      * @param activePlayers
      */
     @Override public void activePlayerList(String activePlayers) {
-        if (activePlayers.contains(aController.getPlayer().toString())){
-            String[] list = activePlayers.substring(1,activePlayers.length()-1).split(", ");
-            for (int d=0;d<list.length;d++){
-                if (list[d].split(":")[0].equals(aController.getPlayer().toString())){
+        if (activePlayers.contains(aController.getPlayer().toString())) {
+            String[] list = activePlayers.substring(1, activePlayers.length() - 1).split(", ");
+            for (int d = 0; d < list.length; d++) {
+                if (list[d].split(":")[0].equals(aController.getPlayer().toString())) {
                     aController.getPlayer().setLife(Integer.parseInt(list[d].split(":")[2]));
                     break;
                 }
@@ -311,7 +313,7 @@ public class MapView extends Activity implements ActionListener {
      * @param inactivePlayers
      */
     @Override public void inactivePlayerList(String inactivePlayers) {
-        if (!aController.getBoard().getDeadPlayers().equals(inactivePlayers) && !inactivePlayers.equals("[]")){
+        if (!aController.getBoard().getDeadPlayers().equals(inactivePlayers) && !inactivePlayers.equals("[]")) {
             aController.getBoard().setDeadPlayers(inactivePlayers);
             String[] players = inactivePlayers.substring(1, inactivePlayers.length() - 1).split(",");
             if (!aController.getPlayer().getDead()) {
@@ -320,17 +322,16 @@ public class MapView extends Activity implements ActionListener {
                     if (players[b].split(":")[0].equals(aController.getPlayer().toString())) {
                         iDead = true;
                         aController.getPlayer().iDied();
-                        addMessage("Too bad "+ aController.getPlayer().toString() + ", you have died");
+                        addMessage("Too bad " + aController.getPlayer().toString() + ", you have died");
                         updateBoard();
                         leave.setVisibility(View.INVISIBLE);
                         break;
                     }
                 }
-                if (!iDead){
-                    addMessage("Oh my, " + players[players.length-1].split(":")[0] + " has died");
+                if (!iDead) {
+                    addMessage("Oh my, " + players[players.length - 1].split(":")[0] + " has died");
                 }
-            }
-            else{ addMessage("Oh my, " + players[players.length-1].split(":")[0] + " has died");}
+            } else { addMessage("Oh my, " + players[players.length - 1].split(":")[0] + " has died");}
         }
     }
 
@@ -369,5 +370,10 @@ public class MapView extends Activity implements ActionListener {
      */
     @Override public void response(JSONObject jsonObject) {
 
+    }
+
+    @Override protected void onDestroy() {
+        HTTPRequest.removeListener(this);
+        super.onDestroy();
     }
 }

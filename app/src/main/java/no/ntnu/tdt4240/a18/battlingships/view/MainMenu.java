@@ -18,7 +18,7 @@ import no.ntnu.tdt4240.a18.battlingships.model.PerformInBackground;
 public class MainMenu extends Activity implements ActionListener {
 
     private ShipController aController;
-    private boolean game= true;
+    private boolean game = true;
     private boolean gamebegun;
     //Timer t = new Timer();
 
@@ -32,7 +32,6 @@ public class MainMenu extends Activity implements ActionListener {
         aController = (ShipController) getApplicationContext();
         performInBackground = PerformInBackground.getInstance(getApplicationContext());
         performInBackground.execute();
-        HTTPRequest.addListener(this);
     }
 
 
@@ -63,15 +62,15 @@ public class MainMenu extends Activity implements ActionListener {
      */
     public void createNewGame(View view) {
         if (!game) {
-        Intent intent = new Intent(this, CreateNewGame.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(intent);
-    } else {
-        Intent intent = new Intent(this, JoinGameView.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(intent);
+            Intent intent = new Intent(this, CreateNewGame.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, JoinGameView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
+        }
     }
-}
 
     /**
      * Called when the user clicks the "CreditView" button
@@ -226,4 +225,13 @@ public class MainMenu extends Activity implements ActionListener {
         super.onDestroy();
     }
 
+    @Override protected void onResume() {
+        HTTPRequest.addListener(this);
+        super.onResume();
+    }
+
+    @Override protected void onPause() {
+        HTTPRequest.removeListener(this);
+        super.onPause();
+    }
 }

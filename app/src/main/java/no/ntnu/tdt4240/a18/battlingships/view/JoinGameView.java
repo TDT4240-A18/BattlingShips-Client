@@ -248,4 +248,14 @@ public class JoinGameView extends Activity implements ActionListener {
         aController.getNet().leave(aController.getPlayer().toString());
         super.onDestroy();
     }
+
+    @Override protected void onResume() {
+        HTTPRequest.addListener(this);
+        super.onResume();
+    }
+
+    @Override protected void onPause() {
+        HTTPRequest.removeListener(this);
+        super.onPause();
+    }
 }

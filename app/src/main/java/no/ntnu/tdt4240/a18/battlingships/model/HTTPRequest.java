@@ -35,8 +35,22 @@ public class HTTPRequest {
      * @param listener
      */
     public static void addListener(ActionListener listener) {
+
+        System.out.println("--- + listener: " + listener.toString() + " size: " + actionListeners.size());
+
         actionListeners.add(listener);
     }
+
+    /**
+     * remove listener form listener list
+     *
+     * @param listener
+     */
+    public static void removeListener(ActionListener listener) {
+        System.out.println("--- - listener: " + listener.toString() + " size: " + actionListeners.size());
+        actionListeners.remove(listener);
+    }
+
 
     public static void send(final Context context, String namespace, String action) {
         send(context, namespace, action, "");
@@ -45,7 +59,7 @@ public class HTTPRequest {
     public static void send(final Context context, String namespace, String action, String suffix) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://78.91.73.37:8080/" + namespace + "/" + action + suffix;
+        String url = "http://78.91.74.123:8080/" + namespace + "/" + action + suffix;
         Log.i("HTTP", "url: ----" + url);
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

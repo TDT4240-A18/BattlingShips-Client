@@ -36,7 +36,7 @@ public class HTTPRequest {
      */
     public static void addListener(ActionListener listener) {
 
-        System.out.println("--- + listener: " + listener.toString() + " size: " + actionListeners.size());
+        //System.out.println("--- + listener: " + listener.toString() + " size: " + actionListeners.size());
 
         actionListeners.add(listener);
     }
@@ -47,7 +47,7 @@ public class HTTPRequest {
      * @param listener
      */
     public static void removeListener(ActionListener listener) {
-        System.out.println("--- - listener: " + listener.toString() + " size: " + actionListeners.size());
+        //System.out.println("--- - listener: " + listener.toString() + " size: " + actionListeners.size());
         actionListeners.remove(listener);
     }
 

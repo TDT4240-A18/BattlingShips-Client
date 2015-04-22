@@ -230,12 +230,19 @@ public class JoinGameView extends Activity implements ActionListener {
         if (result.equals("success")) {
             join.setVisibility(View.INVISIBLE);
             name.setInputType(InputType.TYPE_NULL);
-        } else {
+        }
+        else if(result.contains("not join after")){
+            aController.getPlayer().iDied();
+            aController.getPlayer().setUsername("");
+            Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
+        }
+        else {
             Toast toast = Toast.makeText(this, result, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
         }
-        //if fail then send message that it failed and reason
     }
 
     /**

@@ -18,8 +18,8 @@ public class Board {
     private Board() {
     }
 
-    private String[][] board = {{null, null, null, null}, {null, "test:3", null, null}, {null, null, null, null},
-            {null, null, null, null}};
+    private String[][] board = {{"null", "null", "null", "null"}, {"null", "null", "null", "null"}, {"null", "null", "null", "null"},
+            {"null", "null", "null", "null"}};
     private int width = 4;
     private int height = 4;
     String[] playerList = {""};

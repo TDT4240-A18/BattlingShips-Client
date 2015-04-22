@@ -3,6 +3,7 @@ package no.ntnu.tdt4240.a18.battlingships.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -42,12 +43,13 @@ public class JoinGameView extends Activity implements ActionListener {
         name.setText(aController.getPlayer().toString());
         String[] values = aController.getBoard().getPlayerList();
         valuelist = new ArrayList<String>();
-        valuelist.add("Players");
+        valuelist.add("Players:Status");
         valuelist.addAll(Arrays.asList(values));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valuelist);
         listView.setAdapter(adapter);
         if (!aController.getPlayer().toString().equals("")) {
             join.setVisibility(View.INVISIBLE);
+            name.setInputType(InputType.TYPE_NULL);
         }
         HTTPRequest.addListener(this);
     }
@@ -76,6 +78,7 @@ public class JoinGameView extends Activity implements ActionListener {
             aController.getNet().leave(aController.getPlayer().toString());
             aController.getPlayer().setUsername("");
             join.setVisibility(View.VISIBLE);
+            name.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         }
     }
 
@@ -103,7 +106,7 @@ public class JoinGameView extends Activity implements ActionListener {
     @Override public void joinedPlayers(String list) {
         String[] values = list.substring(1, list.length() - 1).split(",");
         valuelist.clear();
-        valuelist.add("Players");
+        valuelist.add("Players:Status");
         valuelist.addAll(Arrays.asList(values));
         adapter.notifyDataSetChanged();
     }
@@ -223,10 +226,10 @@ public class JoinGameView extends Activity implements ActionListener {
      * @param result
      */
     @Override public void joinResult(String result) {
-        //TODO if result is success then hide Join button maybe and lock the edittext
 
         if (result.equals("success")) {
             join.setVisibility(View.INVISIBLE);
+            name.setInputType(InputType.TYPE_NULL);
         } else {
             Toast toast = Toast.makeText(this, result, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
